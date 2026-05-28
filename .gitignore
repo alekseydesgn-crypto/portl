@@ -1,0 +1,7 @@
+# Design handoff artifacts (not part of the site)
+_handoff/
+handoff.tar.gz
+
+# Local editor / tooling
+.claude/
+.DS_Store

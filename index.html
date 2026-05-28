@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NOCTURNE — Studio for Design & Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..700;1,200..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-accent="classic" data-tone="neutral" data-motion="on">
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__brand" aria-label="Nocturne home">
+    <span class="glyph" aria-hidden="true"></span>
+    <span>NOCTURNE<span style="opacity:.45; margin-left:6px;">⏤</span></span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#about">Studio</a>
+    <a href="#services">Capabilities</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="nav__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start a project</button>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top" data-screen-label="01 Hero" data-nav-mode="dark">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="hero__orb"></div>
+    <div class="hero__orb hero__orb--b"></div>
+    <div class="hero__noise"></div>
+    <div class="hero__vignette"></div>
+  </div>
+
+  <div class="hero__top" aria-hidden="true">
+    <span><span class="dot"></span> Available — Q3 / Q4 2026</span>
+    <span>N — 48.8566° N, 2.3522° E</span>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow eyebrow no-rule">Studio for design &amp; engineering ⏤ est. 2017</div>
+    <h1 class="hero__title">
+      <span class="row"><span>Designing the</span></span>
+      <span class="row"><span>quiet spaces</span></span>
+      <span class="row"><span><em>between</em> pixels.</span></span>
+    </h1>
+    <div class="hero__meta">
+      <p class="hero__lede">An independent studio crafting digital products, identities, and interactive experiences for ambitious teams. We work slowly, deliberately, and with intent.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#work">
+          See selected work
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#contact">
+          Book a call
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section class="section section--light" id="about" data-screen-label="02 About" data-nav-mode="light">
+  <div class="section__inner">
+    <div class="about reveal">
+      <div class="about__text">
+        <div class="eyebrow">01 ⏤ Index</div>
+        <h2 class="h2">A small studio<br/><em>making considered work</em> for the next decade of software.</h2>
+        <p class="lede">Nocturne is a four-person practice based in Paris and Lisbon. We partner with founders, design leaders, and cultural institutions on digital products and the brands that hold them up.</p>
+        <p class="lede">Every engagement begins the same way: a long conversation, a sharp brief, and the patience to do fewer things, better. We believe restraint is a feature.</p>
+
+        <div class="about__sig">
+          <svg width="60" height="22" viewBox="0 0 60 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+            <path d="M2 14 C 8 4, 14 22, 20 10 S 32 18, 38 8 S 52 16, 58 6"/>
+          </svg>
+          <span>Théo Marchand ⏤ Principal</span>
+        </div>
+      </div>
+
+      <div class="about__stack">
+        <div class="about__image">
+          <div class="placeholder"></div>
+          <div class="ph-label">Studio · Paris</div>
+        </div>
+        <div class="about__image about__image--small">
+          <div class="placeholder"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about__stats reveal-stagger">
+      <div>
+        <div class="stat__n">09<sup>yr</sup></div>
+        <div class="stat__l">Years in practice</div>
+      </div>
+      <div>
+        <div class="stat__n">84</div>
+        <div class="stat__l">Shipped engagements</div>
+      </div>
+      <div>
+        <div class="stat__n">12</div>
+        <div class="stat__l">International awards</div>
+      </div>
+      <div>
+        <div class="stat__n">04</div>
+        <div class="stat__l">Senior partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROJECTS ============== -->
+<section class="section section--dark" id="work" data-screen-label="03 Work" data-nav-mode="dark">
+  <div class="section__inner">
+    <div class="section__head reveal">
+      <div>
+        <div class="eyebrow">02 ⏤ Selected work</div>
+      </div>
+      <div>
+        <h2 class="h2">A short list of the<br/>commissions we are <em>most proud of</em>.</h2>
+        <p class="lede">Six engagements out of the last forty. Spanning consumer software, hospitality, financial infrastructure, and contemporary culture.</p>
+      </div>
+    </div>
+
+    <div class="projects__grid reveal-stagger">
+
+      <a class="project project--wide project--p1" href="#" data-cursor="open">
+        <div class="project__glow"></div>
+        <div class="project__media">
+          <div class="placeholder"></div>
+          <div class="ph-label">Product · 2025</div>
+        </div>
+        <div class="project__chrome">
+          <div>
+            <div class="project__meta">Halcyon Finance · Treasury OS</div>
+            <h3 class="project__name">Banking, but quieter.</h3>
+          </div>
+          <div class="project__cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a class="project project--tall project--p2" href="#" data-cursor="open">
+        <div class="project__glow"></div>
+        <div class="project__media">
+          <div class="placeholder"></div>
+          <div class="ph-label">Brand · 2025</div>
+        </div>
+        <div class="project__chrome">
+          <div>
+            <div class="project__meta">Maison Lirio · Identity</div>
+            <h3 class="project__name">A house of perfumers, rewritten.</h3>
+          </div>
+          <div class="project__cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a class="project project--half project--p3" href="#" data-cursor="open">
+        <div class="project__glow"></div>
+        <div class="project__media">
+          <div class="placeholder"></div>
+          <div class="ph-label">Editorial · 2024</div>
+        </div>
+        <div class="project__chrome">
+          <div>
+            <div class="project__meta">Volume — A quarterly</div>
+            <h3 class="project__name">A magazine for slow ideas.</h3>
+          </div>
+          <div class="project__cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a class="project project--half project--p4" href="#" data-cursor="open">
+        <div class="project__glow"></div>
+        <div class="project__media">
+          <div class="placeholder"></div>
+          <div class="ph-label">Hospitality · 2024</div>
+        </div>
+        <div class="project__chrome">
+          <div>
+            <div class="project__meta">Hôtel Aperture · Booking</div>
+            <h3 class="project__name">Booking a room, as a film.</h3>
+          </div>
+          <div class="project__cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="display:flex; justify-content:center; margin-top: clamp(56px, 8vh, 96px);" class="reveal">
+      <a class="btn btn--ghost" href="#">
+        Browse the full archive
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES ============== -->
+<section class="section section--ink" id="services" data-screen-label="04 Services" data-nav-mode="dark">
+  <div class="section__inner">
+    <div class="section__head reveal">
+      <div>
+        <div class="eyebrow">03 ⏤ Capabilities</div>
+      </div>
+      <div>
+        <h2 class="h2">Five practices, <em>one studio.</em> We rarely do just one.</h2>
+        <p class="lede">Most engagements braid two or three of these together — an identity that ships as a product, a product that ships as an editorial. We staff for the whole arc.</p>
+      </div>
+    </div>
+
+    <div class="services__grid reveal-stagger">
+
+      <div class="service service--first">
+        <div class="service__visual"></div>
+        <div class="service__num">⏤ 01</div>
+        <div class="service__body">
+          <h3 class="service__name">Product &amp; UX design</h3>
+          <p class="service__desc">Interfaces with intent. From the first wireframe to the last micro-interaction — we design products that feel inevitable in the hand.</p>
+          <div class="service__tags">
+            <span>Research</span><span>IA</span><span>Interaction</span><span>Design systems</span><span>Prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service__num">⏤ 02</div>
+        <div class="service__body">
+          <h3 class="service__name">Web development</h3>
+          <p class="service__desc">Editorial sites, configurators, and storefronts engineered to be fast, accessible, and quietly impressive.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service__num">⏤ 03</div>
+        <div class="service__body">
+          <h3 class="service__name">Brand identity</h3>
+          <p class="service__desc">Marks, type systems, and editorial vocabularies for houses that prefer not to shout.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service__num">⏤ 04</div>
+        <div class="service__body">
+          <h3 class="service__name">Motion design</h3>
+          <p class="service__desc">Easing, timing, and the considered pause. We treat motion as type.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service__num">⏤ 05</div>
+        <div class="service__body">
+          <h3 class="service__name">Creative direction</h3>
+          <p class="service__desc">Long-form retainers for in-house teams who need a steady hand and a sharp pair of eyes.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service__num">⏤ 06</div>
+        <div class="service__body">
+          <h3 class="service__name">Editorial &amp; print</h3>
+          <p class="service__desc">Books, lookbooks, and reports — printed slowly, on paper worth the trip.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIALS ============== -->
+<section class="section section--light" id="journal" data-screen-label="05 Testimonials" data-nav-mode="light">
+  <div class="section__inner">
+    <div class="testi__head reveal">
+      <div class="eyebrow no-rule">04 ⏤ Voices</div>
+      <h2 class="h2">Trusted by modern houses, <em>quiet ones.</em></h2>
+    </div>
+
+    <div class="testi__grid reveal-stagger">
+      <article class="testi">
+        <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+        <p class="testi__quote">Nocturne treated our product the way a watchmaker treats a movement. Every detail tuned, every motion intentional. They are now the team I send every founder I trust to.</p>
+        <div class="testi__author">
+          <div class="testi__avatar">AS</div>
+          <div class="testi__who">
+            <div class="testi__name">Anya Sørensen</div>
+            <div class="testi__role">Founder &amp; CEO — Halcyon Finance</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi">
+        <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+        <p class="testi__quote">We arrived with a 60-page brand book and left with a sensibility. The work has aged beautifully and continues to do work for us, three years on.</p>
+        <div class="testi__author">
+          <div class="testi__avatar">JR</div>
+          <div class="testi__who">
+            <div class="testi__name">Julien Rouvier</div>
+            <div class="testi__role">Creative Director — Maison Lirio</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi">
+        <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
+        <p class="testi__quote">The best vendor relationship I have had in fifteen years of running design teams. Calm, accountable, and disarmingly good at the craft.</p>
+        <div class="testi__author">
+          <div class="testi__avatar">MO</div>
+          <div class="testi__who">
+            <div class="testi__name">Mira Okafor</div>
+            <div class="testi__role">VP Design — Northbound Labs</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="testi__logos reveal">
+      <div class="testi__logo"><span class="sym"></span> Halcyon</div>
+      <div class="testi__logo testi__logo--rect"><span class="sym"></span> Maison Lirio</div>
+      <div class="testi__logo testi__logo--ring"><span class="sym"></span> Aperture</div>
+      <div class="testi__logo testi__logo--bar"><span class="sym"></span> Volume Qtrly</div>
+      <div class="testi__logo"><span class="sym"></span> Northbound</div>
+      <div class="testi__logo testi__logo--ring"><span class="sym"></span> Atelier 09</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT ============== -->
+<section class="section section--dark contact" id="contact" data-screen-label="06 Contact" data-nav-mode="dark">
+  <div class="contact__bg" aria-hidden="true"></div>
+  <div class="section__inner contact__inner">
+    <div class="contact__top reveal">
+      <div>
+        <div class="eyebrow">05 ⏤ Begin a conversation</div>
+        <h2 class="contact__title">Let's build<br/>something <em>quietly extraordinary.</em></h2>
+      </div>
+      <div class="contact__side">
+        <div class="row"><span>Email</span><a href="mailto:studio@nocturne.work">studio@nocturne.work</a></div>
+        <div class="row"><span>Telephone</span><a href="tel:+33000000000">+33 1 ⏤ on request</a></div>
+        <div class="row"><span>Paris</span><span>14 rue de la Verrerie</span></div>
+        <div class="row"><span>Lisbon</span><span>Rua das Janelas Verdes</span></div>
+      </div>
+    </div>
+
+    <form class="form reveal" id="contactForm" onsubmit="return submitForm(event)">
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" required placeholder=" " />
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" required placeholder=" " />
+      </div>
+      <div class="field">
+        <label for="f-org">Company or studio</label>
+        <input id="f-org" name="org" type="text" placeholder=" " />
+      </div>
+      <div class="field">
+        <label for="f-scope">Scope of work</label>
+        <select id="f-scope" name="scope">
+          <option>Product &amp; UX design</option>
+          <option>Web development</option>
+          <option>Brand identity</option>
+          <option>Motion design</option>
+          <option>Creative direction</option>
+          <option>Not yet sure</option>
+        </select>
+      </div>
+      <div class="field field--full">
+        <label for="f-msg">Tell us about your project</label>
+        <textarea id="f-msg" name="message" required placeholder=" "></textarea>
+      </div>
+      <div class="form__submit">
+        <div class="form__note">⏤ We reply within two working days.</div>
+        <button class="form__send" type="submit" id="sendBtn">
+          <span class="form__send-label">Send enquiry</span>
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <div class="nav__brand" style="font-size:18px;">
+        <span class="glyph" aria-hidden="true"></span>
+        <span>NOCTURNE</span>
+      </div>
+      <p>An independent design and engineering studio. Working with founders, design leaders, and cultural institutions on software, identity, and the spaces between.</p>
+    </div>
+    <div class="footer__col">
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Capabilities</a></li>
+        <li><a href="#journal">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h5>Offices</h5>
+      <ul>
+        <li><a href="#">Paris ⟶</a></li>
+        <li><a href="#">Lisbon ⟶</a></li>
+        <li><a href="#">Press kit</a></li>
+        <li><a href="#">Careers — 2 open</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="#">Are.na</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Read.cv</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div>© 2026 NOCTURNE Studio ⏤ All rights reserved</div>
+    <div class="footer__socials">
+      <a href="#">IG</a><a href="#">AN</a><a href="#">CV</a><a href="#">LN</a>
+    </div>
+    <div>v 9.2 ⏤ Paris / Lisbon</div>
+  </div>
+</footer>
+
+<!-- ============== SCRIPTS ============== -->
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  // Nav theme based on scrolled section
+  const nav = document.getElementById('nav');
+  const sections = [...document.querySelectorAll('[data-nav-mode]')];
+  const navIo = new IntersectionObserver((entries) => {
+    // Pick the entry closest to the top that is intersecting
+    const visible = entries.filter(e => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const top = visible[0];
+    if (top) {
+      const mode = top.target.dataset.navMode;
+      nav.classList.toggle('is-light', mode === 'light');
+    }
+  }, { rootMargin: '-72px 0px -80% 0px', threshold: 0 });
+  sections.forEach(s => navIo.observe(s));
+
+  // Project hover glow following cursor
+  document.querySelectorAll('.project').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      card.style.setProperty('--gx', x + '%');
+      card.style.setProperty('--gy', y + '%');
+    });
+  });
+
+  // Form submission (mock)
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('sendBtn');
+    const lbl = btn.querySelector('.form__send-label');
+    btn.classList.add('is-sent');
+    lbl.textContent = 'Sent — we will be in touch';
+    setTimeout(() => {
+      btn.classList.remove('is-sent');
+      lbl.textContent = 'Send enquiry';
+      e.target.reset();
+    }, 3200);
+    return false;
+  }
+
+  // Subtle hero parallax (gentle)
+  const orbs = document.querySelectorAll('.hero__orb');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking && document.body.dataset.motion !== 'off') {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        orbs.forEach((o, i) => {
+          o.style.transform = `translate3d(${i === 0 ? -y*0.04 : y*0.06}px, ${y*0.08}px, 0)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>

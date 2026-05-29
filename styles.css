@@ -121,6 +121,26 @@ button { font: inherit; }
 .nav__cta:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
 .nav.is-light .nav__cta:hover { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.2); }
 
+.nav__actions { display: flex; align-items: center; gap: 12px; }
+
+.nav__lang {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 9px 13px;
+  border: 1px solid var(--hairline-d);
+  border-radius: 999px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: all .3s var(--ease-soft);
+}
+.nav.is-light .nav__lang { border-color: var(--hairline-l); }
+.nav__lang:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
+.nav.is-light .nav__lang:hover { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.2); }
+
 @media (max-width: 720px) {
   .nav__links { display: none; }
 }

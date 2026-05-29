@@ -20,13 +20,16 @@
     <span>NOCTURNE<span style="opacity:.45; margin-left:6px;">⏤</span></span>
   </a>
   <nav class="nav__links" aria-label="Primary">
-    <a href="#work">Work</a>
-    <a href="#about">Studio</a>
-    <a href="#services">Capabilities</a>
-    <a href="#journal">Journal</a>
-    <a href="#contact">Contact</a>
+    <a href="#work" data-i18n="nav.work">Work</a>
+    <a href="#about" data-i18n="nav.studio">Studio</a>
+    <a href="#services" data-i18n="nav.capabilities">Capabilities</a>
+    <a href="#journal" data-i18n="nav.journal">Journal</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
   </nav>
-  <button class="nav__cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start a project</button>
+  <div class="nav__actions">
+    <button class="nav__lang" id="langToggle" type="button" aria-label="Переключить на русский">RU</button>
+    <button class="nav__cta" data-i18n="nav.cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start a project</button>
+  </div>
 </header>
 
 <!-- ============== HERO ============== -->
@@ -40,25 +43,25 @@
   </div>
 
   <div class="hero__top" aria-hidden="true">
-    <span><span class="dot"></span> Available — Q3 / Q4 2026</span>
+    <span><span class="dot"></span> <span data-i18n="hero.status">Available — Q3 / Q4 2026</span></span>
     <span>N — 48.8566° N, 2.3522° E</span>
   </div>
 
   <div class="hero__content">
-    <div class="hero__eyebrow eyebrow no-rule">Studio for design &amp; engineering ⏤ est. 2017</div>
+    <div class="hero__eyebrow eyebrow no-rule" data-i18n="hero.eyebrow">Studio for design &amp; engineering ⏤ est. 2017</div>
     <h1 class="hero__title">
-      <span class="row"><span>Designing the</span></span>
-      <span class="row"><span>quiet spaces</span></span>
-      <span class="row"><span><em>between</em> pixels.</span></span>
+      <span class="row"><span data-i18n="hero.t1">Designing the</span></span>
+      <span class="row"><span data-i18n="hero.t2">quiet spaces</span></span>
+      <span class="row"><span data-i18n="hero.t3"><em>between</em> pixels.</span></span>
     </h1>
     <div class="hero__meta">
-      <p class="hero__lede">An independent studio crafting digital products, identities, and interactive experiences for ambitious teams. We work slowly, deliberately, and with intent.</p>
+      <p class="hero__lede" data-i18n="hero.lede">An independent studio crafting digital products, identities, and interactive experiences for ambitious teams. We work slowly, deliberately, and with intent.</p>
       <div class="hero__ctas">
         <a class="btn btn--primary" href="#work">
-          See selected work
+          <span data-i18n="hero.cta1">See selected work</span>
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--ghost" href="#contact">
+        <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta2">
           Book a call
         </a>
       </div>
@@ -66,7 +69,7 @@
   </div>
 
   <div class="hero__scroll" aria-hidden="true">
-    <span>Scroll</span>
+    <span data-i18n="hero.scroll">Scroll</span>
     <span class="line"></span>
   </div>
 </section>
@@ -76,23 +79,23 @@
   <div class="section__inner">
     <div class="about reveal">
       <div class="about__text">
-        <div class="eyebrow">01 ⏤ Index</div>
-        <h2 class="h2">A small studio<br/><em>making considered work</em> for the next decade of software.</h2>
-        <p class="lede">Nocturne is a four-person practice based in Paris and Lisbon. We partner with founders, design leaders, and cultural institutions on digital products and the brands that hold them up.</p>
-        <p class="lede">Every engagement begins the same way: a long conversation, a sharp brief, and the patience to do fewer things, better. We believe restraint is a feature.</p>
+        <div class="eyebrow" data-i18n="about.eyebrow">01 ⏤ Index</div>
+        <h2 class="h2" data-i18n="about.h2">A small studio<br/><em>making considered work</em> for the next decade of software.</h2>
+        <p class="lede" data-i18n="about.lede1">Nocturne is a four-person practice based in Paris and Lisbon. We partner with founders, design leaders, and cultural institutions on digital products and the brands that hold them up.</p>
+        <p class="lede" data-i18n="about.lede2">Every engagement begins the same way: a long conversation, a sharp brief, and the patience to do fewer things, better. We believe restraint is a feature.</p>
 
         <div class="about__sig">
           <svg width="60" height="22" viewBox="0 0 60 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
             <path d="M2 14 C 8 4, 14 22, 20 10 S 32 18, 38 8 S 52 16, 58 6"/>
           </svg>
-          <span>Théo Marchand ⏤ Principal</span>
+          <span data-i18n="about.sig">Théo Marchand ⏤ Principal</span>
         </div>
       </div>
 
       <div class="about__stack">
         <div class="about__image">
           <div class="placeholder"></div>
-          <div class="ph-label">Studio · Paris</div>
+          <div class="ph-label" data-i18n="about.imglabel">Studio · Paris</div>
         </div>
         <div class="about__image about__image--small">
           <div class="placeholder"></div>
@@ -102,20 +105,20 @@
 
     <div class="about__stats reveal-stagger">
       <div>
-        <div class="stat__n">09<sup>yr</sup></div>
-        <div class="stat__l">Years in practice</div>
+        <div class="stat__n" data-i18n="about.stat1n">09<sup>yr</sup></div>
+        <div class="stat__l" data-i18n="about.stat1l">Years in practice</div>
       </div>
       <div>
         <div class="stat__n">84</div>
-        <div class="stat__l">Shipped engagements</div>
+        <div class="stat__l" data-i18n="about.stat2l">Shipped engagements</div>
       </div>
       <div>
         <div class="stat__n">12</div>
-        <div class="stat__l">International awards</div>
+        <div class="stat__l" data-i18n="about.stat3l">International awards</div>
       </div>
       <div>
         <div class="stat__n">04</div>
-        <div class="stat__l">Senior partners</div>
+        <div class="stat__l" data-i18n="about.stat4l">Senior partners</div>
       </div>
     </div>
   </div>
@@ -126,11 +129,11 @@
   <div class="section__inner">
     <div class="section__head reveal">
       <div>
-        <div class="eyebrow">02 ⏤ Selected work</div>
+        <div class="eyebrow" data-i18n="work.eyebrow">02 ⏤ Selected work</div>
       </div>
       <div>
-        <h2 class="h2">A short list of the<br/>commissions we are <em>most proud of</em>.</h2>
-        <p class="lede">Six engagements out of the last forty. Spanning consumer software, hospitality, financial infrastructure, and contemporary culture.</p>
+        <h2 class="h2" data-i18n="work.h2">A short list of the<br/>commissions we are <em>most proud of</em>.</h2>
+        <p class="lede" data-i18n="work.lede">Six engagements out of the last forty. Spanning consumer software, hospitality, financial infrastructure, and contemporary culture.</p>
       </div>
     </div>
 
@@ -140,12 +143,12 @@
         <div class="project__glow"></div>
         <div class="project__media">
           <div class="placeholder"></div>
-          <div class="ph-label">Product · 2025</div>
+          <div class="ph-label" data-i18n="work.card1.ph">Product · 2025</div>
         </div>
         <div class="project__chrome">
           <div>
-            <div class="project__meta">Halcyon Finance · Treasury OS</div>
-            <h3 class="project__name">Banking, but quieter.</h3>
+            <div class="project__meta" data-i18n="work.card1.meta">Halcyon Finance · Treasury OS</div>
+            <h3 class="project__name" data-i18n="work.card1.name">Banking, but quieter.</h3>
           </div>
           <div class="project__cta">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -157,12 +160,12 @@
         <div class="project__glow"></div>
         <div class="project__media">
           <div class="placeholder"></div>
-          <div class="ph-label">Brand · 2025</div>
+          <div class="ph-label" data-i18n="work.card2.ph">Brand · 2025</div>
         </div>
         <div class="project__chrome">
           <div>
-            <div class="project__meta">Maison Lirio · Identity</div>
-            <h3 class="project__name">A house of perfumers, rewritten.</h3>
+            <div class="project__meta" data-i18n="work.card2.meta">Maison Lirio · Identity</div>
+            <h3 class="project__name" data-i18n="work.card2.name">A house of perfumers, rewritten.</h3>
           </div>
           <div class="project__cta">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -174,12 +177,12 @@
         <div class="project__glow"></div>
         <div class="project__media">
           <div class="placeholder"></div>
-          <div class="ph-label">Editorial · 2024</div>
+          <div class="ph-label" data-i18n="work.card3.ph">Editorial · 2024</div>
         </div>
         <div class="project__chrome">
           <div>
-            <div class="project__meta">Volume — A quarterly</div>
-            <h3 class="project__name">A magazine for slow ideas.</h3>
+            <div class="project__meta" data-i18n="work.card3.meta">Volume — A quarterly</div>
+            <h3 class="project__name" data-i18n="work.card3.name">A magazine for slow ideas.</h3>
           </div>
           <div class="project__cta">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -191,12 +194,12 @@
         <div class="project__glow"></div>
         <div class="project__media">
           <div class="placeholder"></div>
-          <div class="ph-label">Hospitality · 2024</div>
+          <div class="ph-label" data-i18n="work.card4.ph">Hospitality · 2024</div>
         </div>
         <div class="project__chrome">
           <div>
-            <div class="project__meta">Hôtel Aperture · Booking</div>
-            <h3 class="project__name">Booking a room, as a film.</h3>
+            <div class="project__meta" data-i18n="work.card4.meta">Hôtel Aperture · Booking</div>
+            <h3 class="project__name" data-i18n="work.card4.name">Booking a room, as a film.</h3>
           </div>
           <div class="project__cta">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -208,7 +211,7 @@
 
     <div style="display:flex; justify-content:center; margin-top: clamp(56px, 8vh, 96px);" class="reveal">
       <a class="btn btn--ghost" href="#">
-        Browse the full archive
+        <span data-i18n="work.archive">Browse the full archive</span>
         <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -220,11 +223,11 @@
   <div class="section__inner">
     <div class="section__head reveal">
       <div>
-        <div class="eyebrow">03 ⏤ Capabilities</div>
+        <div class="eyebrow" data-i18n="svc.eyebrow">03 ⏤ Capabilities</div>
       </div>
       <div>
-        <h2 class="h2">Five practices, <em>one studio.</em> We rarely do just one.</h2>
-        <p class="lede">Most engagements braid two or three of these together — an identity that ships as a product, a product that ships as an editorial. We staff for the whole arc.</p>
+        <h2 class="h2" data-i18n="svc.h2">Five practices, <em>one studio.</em> We rarely do just one.</h2>
+        <p class="lede" data-i18n="svc.lede">Most engagements braid two or three of these together — an identity that ships as a product, a product that ships as an editorial. We staff for the whole arc.</p>
       </div>
     </div>
 
@@ -234,9 +237,9 @@
         <div class="service__visual"></div>
         <div class="service__num">⏤ 01</div>
         <div class="service__body">
-          <h3 class="service__name">Product &amp; UX design</h3>
-          <p class="service__desc">Interfaces with intent. From the first wireframe to the last micro-interaction — we design products that feel inevitable in the hand.</p>
-          <div class="service__tags">
+          <h3 class="service__name" data-i18n="svc1.name">Product &amp; UX design</h3>
+          <p class="service__desc" data-i18n="svc1.desc">Interfaces with intent. From the first wireframe to the last micro-interaction — we design products that feel inevitable in the hand.</p>
+          <div class="service__tags" data-i18n="svc1.tags">
             <span>Research</span><span>IA</span><span>Interaction</span><span>Design systems</span><span>Prototyping</span>
           </div>
         </div>
@@ -245,40 +248,40 @@
       <div class="service">
         <div class="service__num">⏤ 02</div>
         <div class="service__body">
-          <h3 class="service__name">Web development</h3>
-          <p class="service__desc">Editorial sites, configurators, and storefronts engineered to be fast, accessible, and quietly impressive.</p>
+          <h3 class="service__name" data-i18n="svc2.name">Web development</h3>
+          <p class="service__desc" data-i18n="svc2.desc">Editorial sites, configurators, and storefronts engineered to be fast, accessible, and quietly impressive.</p>
         </div>
       </div>
 
       <div class="service">
         <div class="service__num">⏤ 03</div>
         <div class="service__body">
-          <h3 class="service__name">Brand identity</h3>
-          <p class="service__desc">Marks, type systems, and editorial vocabularies for houses that prefer not to shout.</p>
+          <h3 class="service__name" data-i18n="svc3.name">Brand identity</h3>
+          <p class="service__desc" data-i18n="svc3.desc">Marks, type systems, and editorial vocabularies for houses that prefer not to shout.</p>
         </div>
       </div>
 
       <div class="service">
         <div class="service__num">⏤ 04</div>
         <div class="service__body">
-          <h3 class="service__name">Motion design</h3>
-          <p class="service__desc">Easing, timing, and the considered pause. We treat motion as type.</p>
+          <h3 class="service__name" data-i18n="svc4.name">Motion design</h3>
+          <p class="service__desc" data-i18n="svc4.desc">Easing, timing, and the considered pause. We treat motion as type.</p>
         </div>
       </div>
 
       <div class="service">
         <div class="service__num">⏤ 05</div>
         <div class="service__body">
-          <h3 class="service__name">Creative direction</h3>
-          <p class="service__desc">Long-form retainers for in-house teams who need a steady hand and a sharp pair of eyes.</p>
+          <h3 class="service__name" data-i18n="svc5.name">Creative direction</h3>
+          <p class="service__desc" data-i18n="svc5.desc">Long-form retainers for in-house teams who need a steady hand and a sharp pair of eyes.</p>
         </div>
       </div>
 
       <div class="service">
         <div class="service__num">⏤ 06</div>
         <div class="service__body">
-          <h3 class="service__name">Editorial &amp; print</h3>
-          <p class="service__desc">Books, lookbooks, and reports — printed slowly, on paper worth the trip.</p>
+          <h3 class="service__name" data-i18n="svc6.name">Editorial &amp; print</h3>
+          <p class="service__desc" data-i18n="svc6.desc">Books, lookbooks, and reports — printed slowly, on paper worth the trip.</p>
         </div>
       </div>
 
@@ -290,43 +293,43 @@
 <section class="section section--light" id="journal" data-screen-label="05 Testimonials" data-nav-mode="light">
   <div class="section__inner">
     <div class="testi__head reveal">
-      <div class="eyebrow no-rule">04 ⏤ Voices</div>
-      <h2 class="h2">Trusted by modern houses, <em>quiet ones.</em></h2>
+      <div class="eyebrow no-rule" data-i18n="voices.eyebrow">04 ⏤ Voices</div>
+      <h2 class="h2" data-i18n="voices.h2">Trusted by modern houses, <em>quiet ones.</em></h2>
     </div>
 
     <div class="testi__grid reveal-stagger">
       <article class="testi">
         <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
-        <p class="testi__quote">Nocturne treated our product the way a watchmaker treats a movement. Every detail tuned, every motion intentional. They are now the team I send every founder I trust to.</p>
+        <p class="testi__quote" data-i18n="testi1.quote">Nocturne treated our product the way a watchmaker treats a movement. Every detail tuned, every motion intentional. They are now the team I send every founder I trust to.</p>
         <div class="testi__author">
           <div class="testi__avatar">AS</div>
           <div class="testi__who">
-            <div class="testi__name">Anya Sørensen</div>
-            <div class="testi__role">Founder &amp; CEO — Halcyon Finance</div>
+            <div class="testi__name" data-i18n="testi1.name">Anya Sørensen</div>
+            <div class="testi__role" data-i18n="testi1.role">Founder &amp; CEO — Halcyon Finance</div>
           </div>
         </div>
       </article>
 
       <article class="testi">
         <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
-        <p class="testi__quote">We arrived with a 60-page brand book and left with a sensibility. The work has aged beautifully and continues to do work for us, three years on.</p>
+        <p class="testi__quote" data-i18n="testi2.quote">We arrived with a 60-page brand book and left with a sensibility. The work has aged beautifully and continues to do work for us, three years on.</p>
         <div class="testi__author">
           <div class="testi__avatar">JR</div>
           <div class="testi__who">
-            <div class="testi__name">Julien Rouvier</div>
-            <div class="testi__role">Creative Director — Maison Lirio</div>
+            <div class="testi__name" data-i18n="testi2.name">Julien Rouvier</div>
+            <div class="testi__role" data-i18n="testi2.role">Creative Director — Maison Lirio</div>
           </div>
         </div>
       </article>
 
       <article class="testi">
         <div class="testi__stars" aria-label="5 out of 5">★★★★★</div>
-        <p class="testi__quote">The best vendor relationship I have had in fifteen years of running design teams. Calm, accountable, and disarmingly good at the craft.</p>
+        <p class="testi__quote" data-i18n="testi3.quote">The best vendor relationship I have had in fifteen years of running design teams. Calm, accountable, and disarmingly good at the craft.</p>
         <div class="testi__author">
           <div class="testi__avatar">MO</div>
           <div class="testi__who">
-            <div class="testi__name">Mira Okafor</div>
-            <div class="testi__role">VP Design — Northbound Labs</div>
+            <div class="testi__name" data-i18n="testi3.name">Mira Okafor</div>
+            <div class="testi__role" data-i18n="testi3.role">VP Design — Northbound Labs</div>
           </div>
         </div>
       </article>
@@ -349,49 +352,49 @@
   <div class="section__inner contact__inner">
     <div class="contact__top reveal">
       <div>
-        <div class="eyebrow">05 ⏤ Begin a conversation</div>
-        <h2 class="contact__title">Let's build<br/>something <em>quietly extraordinary.</em></h2>
+        <div class="eyebrow" data-i18n="contact.eyebrow">05 ⏤ Begin a conversation</div>
+        <h2 class="contact__title" data-i18n="contact.title">Let's build<br/>something <em>quietly extraordinary.</em></h2>
       </div>
       <div class="contact__side">
-        <div class="row"><span>Email</span><a href="mailto:studio@nocturne.work">studio@nocturne.work</a></div>
-        <div class="row"><span>Telephone</span><a href="tel:+33000000000">+33 1 ⏤ on request</a></div>
-        <div class="row"><span>Paris</span><span>14 rue de la Verrerie</span></div>
-        <div class="row"><span>Lisbon</span><span>Rua das Janelas Verdes</span></div>
+        <div class="row"><span data-i18n="contact.email.l">Email</span><a href="mailto:studio@nocturne.work">studio@nocturne.work</a></div>
+        <div class="row"><span data-i18n="contact.tel.l">Telephone</span><a href="tel:+33000000000">+33 1 ⏤ on request</a></div>
+        <div class="row"><span data-i18n="contact.paris.l">Paris</span><span>14 rue de la Verrerie</span></div>
+        <div class="row"><span data-i18n="contact.lisbon.l">Lisbon</span><span>Rua das Janelas Verdes</span></div>
       </div>
     </div>
 
     <form class="form reveal" id="contactForm" onsubmit="return submitForm(event)">
       <div class="field">
-        <label for="f-name">Your name</label>
+        <label for="f-name" data-i18n="form.name">Your name</label>
         <input id="f-name" name="name" type="text" required placeholder=" " />
       </div>
       <div class="field">
-        <label for="f-email">Email</label>
+        <label for="f-email" data-i18n="form.email">Email</label>
         <input id="f-email" name="email" type="email" required placeholder=" " />
       </div>
       <div class="field">
-        <label for="f-org">Company or studio</label>
+        <label for="f-org" data-i18n="form.org">Company or studio</label>
         <input id="f-org" name="org" type="text" placeholder=" " />
       </div>
       <div class="field">
-        <label for="f-scope">Scope of work</label>
+        <label for="f-scope" data-i18n="form.scope">Scope of work</label>
         <select id="f-scope" name="scope">
-          <option>Product &amp; UX design</option>
-          <option>Web development</option>
-          <option>Brand identity</option>
-          <option>Motion design</option>
-          <option>Creative direction</option>
-          <option>Not yet sure</option>
+          <option data-i18n="form.opt1">Product &amp; UX design</option>
+          <option data-i18n="form.opt2">Web development</option>
+          <option data-i18n="form.opt3">Brand identity</option>
+          <option data-i18n="form.opt4">Motion design</option>
+          <option data-i18n="form.opt5">Creative direction</option>
+          <option data-i18n="form.opt6">Not yet sure</option>
         </select>
       </div>
       <div class="field field--full">
-        <label for="f-msg">Tell us about your project</label>
+        <label for="f-msg" data-i18n="form.msg">Tell us about your project</label>
         <textarea id="f-msg" name="message" required placeholder=" "></textarea>
       </div>
       <div class="form__submit">
-        <div class="form__note">⏤ We reply within two working days.</div>
+        <div class="form__note" data-i18n="form.note">⏤ We reply within two working days.</div>
         <button class="form__send" type="submit" id="sendBtn">
-          <span class="form__send-label">Send enquiry</span>
+          <span class="form__send-label" data-i18n="form.send">Send enquiry</span>
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -407,28 +410,28 @@
         <span class="glyph" aria-hidden="true"></span>
         <span>NOCTURNE</span>
       </div>
-      <p>An independent design and engineering studio. Working with founders, design leaders, and cultural institutions on software, identity, and the spaces between.</p>
+      <p data-i18n="foot.desc">An independent design and engineering studio. Working with founders, design leaders, and cultural institutions on software, identity, and the spaces between.</p>
     </div>
     <div class="footer__col">
-      <h5>Studio</h5>
+      <h5 data-i18n="foot.studio.h">Studio</h5>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Capabilities</a></li>
-        <li><a href="#journal">Journal</a></li>
+        <li><a href="#about" data-i18n="foot.studio.about">About</a></li>
+        <li><a href="#work" data-i18n="foot.studio.work">Work</a></li>
+        <li><a href="#services" data-i18n="foot.studio.cap">Capabilities</a></li>
+        <li><a href="#journal" data-i18n="foot.studio.journal">Journal</a></li>
       </ul>
     </div>
     <div class="footer__col">
-      <h5>Offices</h5>
+      <h5 data-i18n="foot.offices.h">Offices</h5>
       <ul>
-        <li><a href="#">Paris ⟶</a></li>
-        <li><a href="#">Lisbon ⟶</a></li>
-        <li><a href="#">Press kit</a></li>
-        <li><a href="#">Careers — 2 open</a></li>
+        <li><a href="#" data-i18n="foot.offices.paris">Paris ⟶</a></li>
+        <li><a href="#" data-i18n="foot.offices.lisbon">Lisbon ⟶</a></li>
+        <li><a href="#" data-i18n="foot.offices.press">Press kit</a></li>
+        <li><a href="#" data-i18n="foot.offices.careers">Careers — 2 open</a></li>
       </ul>
     </div>
     <div class="footer__col">
-      <h5>Elsewhere</h5>
+      <h5 data-i18n="foot.elsewhere.h">Elsewhere</h5>
       <ul>
         <li><a href="#">Are.na</a></li>
         <li><a href="#">Instagram</a></li>
@@ -438,16 +441,18 @@
     </div>
   </div>
   <div class="footer__bottom">
-    <div>© 2026 NOCTURNE Studio ⏤ All rights reserved</div>
+    <div data-i18n="foot.copy">© 2026 NOCTURNE Studio ⏤ All rights reserved</div>
     <div class="footer__socials">
       <a href="#">IG</a><a href="#">AN</a><a href="#">CV</a><a href="#">LN</a>
     </div>
-    <div>v 9.2 ⏤ Paris / Lisbon</div>
+    <div data-i18n="foot.version">v 9.2 ⏤ Paris / Lisbon</div>
   </div>
 </footer>
 
 <!-- ============== SCRIPTS ============== -->
 <script>
+  window.__nocturneLang = 'en';
+
   // Reveal-on-scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -485,16 +490,17 @@
     });
   });
 
-  // Form submission (mock)
+  // Form submission (mock) — language-aware
   function submitForm(e) {
     e.preventDefault();
     const btn = document.getElementById('sendBtn');
     const lbl = btn.querySelector('.form__send-label');
+    const ru = (window.__nocturneLang === 'ru');
     btn.classList.add('is-sent');
-    lbl.textContent = 'Sent — we will be in touch';
+    lbl.textContent = ru ? 'Отправлено — мы свяжемся с вами' : 'Sent — we will be in touch';
     setTimeout(() => {
       btn.classList.remove('is-sent');
-      lbl.textContent = 'Send enquiry';
+      lbl.textContent = ru ? 'Отправить заявку' : 'Send enquiry';
       e.target.reset();
     }, 3200);
     return false;
@@ -515,6 +521,159 @@
       ticking = true;
     }
   }, { passive: true });
+</script>
+
+<!-- ============== LANGUAGE TOGGLE (EN ⇄ RU) ============== -->
+<script>
+  (function () {
+    const RU = {
+      "nav.work": "Работы",
+      "nav.studio": "Студия",
+      "nav.capabilities": "Компетенции",
+      "nav.journal": "Журнал",
+      "nav.contact": "Контакты",
+      "nav.cta": "Начать проект",
+
+      "hero.status": "Свободны — Q3 / Q4 2026",
+      "hero.eyebrow": "Студия дизайна и инженерии ⏤ с 2017",
+      "hero.t1": "Создаём",
+      "hero.t2": "тишину",
+      "hero.t3": "<em>между</em> пикселями.",
+      "hero.lede": "Независимая студия, создающая цифровые продукты, фирменные стили и интерактивные проекты для амбициозных команд. Мы работаем медленно, вдумчиво и осознанно.",
+      "hero.cta1": "Смотреть работы",
+      "hero.cta2": "Назначить звонок",
+      "hero.scroll": "Листайте",
+
+      "about.eyebrow": "01 ⏤ О нас",
+      "about.h2": "Небольшая студия,<br/><em>создающая осмысленные работы</em> для следующего десятилетия софта.",
+      "about.lede1": "Nocturne — практика из четырёх человек с базами в Париже и Лиссабоне. Мы сотрудничаем с основателями, дизайн-лидерами и культурными институциями над цифровыми продуктами и брендами, которые их держат.",
+      "about.lede2": "Каждый проект начинается одинаково: долгий разговор, чёткое задание и терпение делать меньше, но лучше. Мы убеждены: сдержанность — это достоинство.",
+      "about.sig": "Тео Маршан ⏤ Принципал",
+      "about.imglabel": "Студия · Париж",
+      "about.stat1n": "09<sup>лет</sup>",
+      "about.stat1l": "Лет практики",
+      "about.stat2l": "Реализованных проектов",
+      "about.stat3l": "Международных наград",
+      "about.stat4l": "Старших партнёра",
+
+      "work.eyebrow": "02 ⏤ Избранные работы",
+      "work.h2": "Короткий список заказов, которыми мы <em>гордимся больше всего</em>.",
+      "work.lede": "Шесть проектов из последних сорока. Потребительский софт, гостеприимство, финансовая инфраструктура и современная культура.",
+      "work.card1.ph": "Продукт · 2025",
+      "work.card1.meta": "Halcyon Finance · Treasury OS",
+      "work.card1.name": "Банкинг, только тише.",
+      "work.card2.ph": "Бренд · 2025",
+      "work.card2.meta": "Maison Lirio · Айдентика",
+      "work.card2.name": "Дом парфюмеров, переосмысленный.",
+      "work.card3.ph": "Эдиториал · 2024",
+      "work.card3.meta": "Volume — Ежеквартальник",
+      "work.card3.name": "Журнал для медленных идей.",
+      "work.card4.ph": "Гостеприимство · 2024",
+      "work.card4.meta": "Hôtel Aperture · Бронирование",
+      "work.card4.name": "Бронь номера — как фильм.",
+      "work.archive": "Открыть весь архив",
+
+      "svc.eyebrow": "03 ⏤ Компетенции",
+      "svc.h2": "Пять направлений, <em>одна студия.</em> Редко делаем что-то одно.",
+      "svc.lede": "Чаще всего проект сплетает два-три направления: айдентика, которая выходит продуктом; продукт, который выходит эдиториалом. Мы собираем команду на всю дугу.",
+      "svc1.name": "Продукт и UX-дизайн",
+      "svc1.desc": "Интерфейсы со смыслом. От первого вайрфрейма до последней микроанимации — мы проектируем продукты, которые в руке ощущаются неизбежными.",
+      "svc1.tags": "<span>Исследование</span><span>IA</span><span>Взаимодействие</span><span>Дизайн-системы</span><span>Прототипирование</span>",
+      "svc2.name": "Веб-разработка",
+      "svc2.desc": "Эдиториал-сайты, конфигураторы и витрины, спроектированные быть быстрыми, доступными и негромко впечатляющими.",
+      "svc3.name": "Фирменный стиль",
+      "svc3.desc": "Знаки, шрифтовые системы и визуальные языки для домов, которые предпочитают не кричать.",
+      "svc4.name": "Моушн-дизайн",
+      "svc4.desc": "Изинг, тайминг и осмысленная пауза. Мы относимся к движению как к типографике.",
+      "svc5.name": "Креативное направление",
+      "svc5.desc": "Долгосрочные ретейнеры для внутренних команд, которым нужна твёрдая рука и острый взгляд.",
+      "svc6.name": "Эдиториал и печать",
+      "svc6.desc": "Книги, лукбуки и отчёты — печатаем медленно, на бумаге, ради которой стоит проехаться.",
+
+      "voices.eyebrow": "04 ⏤ Голоса",
+      "voices.h2": "Нам доверяют современные дома, <em>тихие.</em>",
+      "testi1.quote": "Nocturne отнеслись к нашему продукту так, как часовщик относится к механизму. Каждая деталь выверена, каждое движение осмысленно. Теперь это команда, к которой я отправляю каждого основателя, которому доверяю.",
+      "testi1.name": "Аня Сёренсен",
+      "testi1.role": "Основатель и CEO — Halcyon Finance",
+      "testi2.quote": "Мы пришли с 60-страничным брендбуком, а ушли с чувством стиля. Работа красиво состарилась и продолжает работать на нас три года спустя.",
+      "testi2.name": "Жюльен Рувье",
+      "testi2.role": "Креативный директор — Maison Lirio",
+      "testi3.quote": "Лучшие отношения с подрядчиком за пятнадцать лет руководства дизайн-командами. Спокойные, ответственные и обезоруживающе сильные в ремесле.",
+      "testi3.name": "Мира Окафор",
+      "testi3.role": "VP Design — Northbound Labs",
+
+      "contact.eyebrow": "05 ⏤ Начать разговор",
+      "contact.title": "Давайте создадим<br/>что-то <em>тихо выдающееся.</em>",
+      "contact.email.l": "Почта",
+      "contact.tel.l": "Телефон",
+      "contact.paris.l": "Париж",
+      "contact.lisbon.l": "Лиссабон",
+      "form.name": "Ваше имя",
+      "form.email": "Почта",
+      "form.org": "Компания или студия",
+      "form.scope": "Объём работ",
+      "form.opt1": "Продукт и UX-дизайн",
+      "form.opt2": "Веб-разработка",
+      "form.opt3": "Фирменный стиль",
+      "form.opt4": "Моушн-дизайн",
+      "form.opt5": "Креативное направление",
+      "form.opt6": "Пока не знаю",
+      "form.msg": "Расскажите о проекте",
+      "form.note": "⏤ Отвечаем в течение двух рабочих дней.",
+      "form.send": "Отправить заявку",
+
+      "foot.desc": "Независимая студия дизайна и инженерии. Работаем с основателями, дизайн-лидерами и культурными институциями над софтом, айдентикой и пространствами между.",
+      "foot.studio.h": "Студия",
+      "foot.studio.about": "О нас",
+      "foot.studio.work": "Работы",
+      "foot.studio.cap": "Компетенции",
+      "foot.studio.journal": "Журнал",
+      "foot.offices.h": "Офисы",
+      "foot.offices.paris": "Париж ⟶",
+      "foot.offices.lisbon": "Лиссабон ⟶",
+      "foot.offices.press": "Пресс-кит",
+      "foot.offices.careers": "Вакансии — 2 открыты",
+      "foot.elsewhere.h": "Где ещё",
+      "foot.copy": "© 2026 NOCTURNE Studio ⏤ Все права защищены",
+      "foot.version": "v 9.2 ⏤ Париж / Лиссабон"
+    };
+
+    const TITLE = {
+      en: "NOCTURNE — Studio for Design & Engineering",
+      ru: "NOCTURNE — Студия дизайна и инженерии"
+    };
+
+    const els = document.querySelectorAll('[data-i18n]');
+    const EN = new Map();
+    els.forEach(el => EN.set(el, el.innerHTML));
+
+    const btn = document.getElementById('langToggle');
+
+    function apply(target) {
+      els.forEach(el => {
+        const k = el.dataset.i18n;
+        if (target === 'ru') {
+          if (RU[k] != null) el.innerHTML = RU[k];
+        } else {
+          el.innerHTML = EN.get(el);
+        }
+      });
+      document.documentElement.lang = target;
+      document.title = TITLE[target] || TITLE.en;
+      window.__nocturneLang = target;
+      btn.textContent = target === 'ru' ? 'EN' : 'RU';
+      btn.setAttribute('aria-label', target === 'ru' ? 'Switch to English' : 'Переключить на русский');
+      try { localStorage.setItem('nocturne-lang', target); } catch (e) {}
+    }
+
+    btn.addEventListener('click', () => {
+      apply(window.__nocturneLang === 'ru' ? 'en' : 'ru');
+    });
+
+    let saved = 'en';
+    try { saved = localStorage.getItem('nocturne-lang') || 'en'; } catch (e) {}
+    if (saved === 'ru') apply('ru');
+  })();
 </script>
 
 </body>

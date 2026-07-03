@@ -7,7 +7,7 @@
   <meta name="description" content="Avos — a web agency. We do it matters to us. UX/UI design, branding and web development." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pragati+Narrow:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -21,24 +21,19 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero — panel rendered 1:1 from the source design -->
   <section class="hero">
     <div class="hero__panel">
-      <h1 class="hero__title">Web agency</h1>
-      <p class="hero__sub">We do it matters to us</p>
-      <div class="hero__cards">
-        <a href="#works"><img src="assets/img/card-ux.jpg" alt="UX UI Design" /></a>
-        <a href="#works"><img src="assets/img/card-branding.jpg" alt="Branding" /></a>
-        <a href="#works"><img src="assets/img/card-webdev.jpg" alt="Web dev" /></a>
-      </div>
+      <img class="hero__bg" src="assets/img/hero-panel.jpg" alt="Web agency — we do it matters to us. UX UI Design, Branding, Web dev" />
+      <a class="hero__card hero__card--1" href="#works" aria-label="UX UI Design"></a>
+      <a class="hero__card hero__card--2" href="#works" aria-label="Branding"></a>
+      <a class="hero__card hero__card--3" href="#works" aria-label="Web dev"></a>
     </div>
   </section>
 
   <!-- Selected works -->
-  <main class="wrap" id="works">
+  <main class="works" id="works">
     <section class="section">
-      <p class="eyebrow">Selected works</p>
-
       <article class="work reveal">
         <div class="work__body">
           <p class="work__tag">Case study App, e-com, iOS</p>

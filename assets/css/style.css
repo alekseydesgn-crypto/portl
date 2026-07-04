@@ -112,9 +112,9 @@ img { display: block; max-width: 100%; }
 .site-header--light .pill--home .pill__logo,
 .site-header--light .pill--home .pill__link { color: #282828; }
 
-/* case pages pill — kept from the case design */
+/* case pill — spec: 641×75 · padding 5/80/5/60 · #FFF 60% · outline #48484C 30% · blur 10 */
 .pill--case {
-  width: 641px;
+  width: min(641px, calc(100vw - 28px));
   height: 75px;
   padding: 5px 80px 5px 60px;
   border-radius: var(--radius);
@@ -122,21 +122,26 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: space-between;
   background: rgba(255, 255, 255, .60);
-  border: 1px solid rgba(72, 72, 76, .30);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  outline: 1px solid rgba(72, 72, 76, .30);
+  outline-offset: -1px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .pill--case a {
-  font-family: var(--mono);
-  font-size: 15px;
-  color: #141414;
+  font-family: var(--narrow);
+  font-size: 25px;
+  letter-spacing: 1.25px;
+  color: #1C1C1C;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 19px;
   transition: opacity .2s ease;
 }
-.pill--case a:hover { opacity: .6; }
-.pill--case .arrow { font-size: 18px; }
+.pill--case a:hover { opacity: .55; }
+.pill--case .arrow {
+  width: 23px; height: 23px;
+  flex: none;
+}
 
 /* ---------------------------------------------------------
    Home — hero (grain 1:1, live text)
@@ -279,79 +284,109 @@ a.work__media:hover img { transform: scale(1.03); }
 .soon-badge.is-on { opacity: 1; }
 
 /* ---------------------------------------------------------
-   Case study pages (unchanged design)
+   Case study pages — 1:1 spec (container 1790 @65 · top 273)
+   title 102 Jeju · headings 60 Jeju · body 30 Pragati #000
+   meta/num label 30 #48484C · sections gap 300 · text 705 · img 886
    --------------------------------------------------------- */
-.case-head { padding: 190px 0 0; text-align: center; }
-.case-title {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(38px, 6vw, 78px);
-  line-height: 1.05;
+.cs {
+  width: min(1790px, calc(100% - 130px));
   margin: 0 auto;
-  max-width: 15ch;
-  letter-spacing: -.5px;
+  padding-top: 14.22vw;                     /* 273 */
 }
-.case-hero {
-  margin: 60px 0 0;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #f2f2f4;
+.cs__title {
+  font-family: var(--jeju);
+  font-weight: 400;
+  font-size: clamp(34px, 5.3125vw, 102px);  /* 102 */
+  line-height: 1.12;
+  text-align: center;
+  color: #1C1C1C;
+  margin: 0 auto 2.34vw;                    /* gap 45 */
+  max-width: 20ch;
 }
-.case-hero img { width: 100%; }
-
-.contribution {
-  padding: 70px 0 0;
-  max-width: 620px;
+.cs__hero {
+  width: 100%;
+  border-radius: 1.5625vw;                  /* 30 */
+  display: block;
 }
-.contribution p { margin: 0; font-size: 16px; color: #2a2a2a; font-family: var(--mono); }
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #8c8c8c;
-  margin: 0 0 18px;
+.cs__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 4vw;
+  margin-top: 2.083vw;                      /* gap 40 */
 }
-
-.block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-  padding: 110px 0 0;
+.cs__meta-col { width: 39.4%; }             /* 705 / 1790 */
+.cs__label {
+  color: #48484C;
+  font-size: clamp(13px, 1.5625vw, 30px);
+  letter-spacing: .078vw;
+  margin: 0 0 .52vw;                        /* gap 10 */
 }
-.block__text { max-width: 46ch; font-family: var(--mono); font-size: 15px; line-height: 1.7; }
-.block__num {
-  font-family: var(--mono);
-  font-size: 14px;
-  color: #8c8c8c;
-  margin: 0 0 10px;
+.cs__text {
+  color: #1C1C1C;
+  font-size: clamp(13px, 1.5625vw, 30px);
+  letter-spacing: .078vw;
+  margin: 0;
 }
-.block__h {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(30px, 3.6vw, 46px);
-  margin: 0 0 26px;
-  line-height: 1.05;
+.cs__sections {
+  margin-top: 7.81vw;                       /* gap 150 */
+  display: flex;
+  flex-direction: column;
+  gap: 15.625vw;                            /* 300 */
 }
-.block__text p { margin: 0 0 18px; color: #2a2a2a; }
-.block__text p:last-child { margin-bottom: 0; }
-.block__media {
-  border-radius: 18px;
-  overflow: hidden;
-  background: #0e0e0e;
+.cs__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4vw;
 }
-.block__media img { width: 100%; }
-.block--solo { grid-template-columns: 1fr; }
-.block--solo .block__text { max-width: 56ch; }
-
-.design { padding: 130px 0 0; }
-.design__frame {
-  border-radius: 24px;
-  overflow: hidden;
-  background: #f4f5f7;
+.cs__section--text { display: block; }
+.cs__body {
+  width: 39.4%;                             /* 705 */
+  display: flex;
+  flex-direction: column;
+  gap: 3.125vw;                             /* 60 */
 }
-.design__frame img { width: 100%; }
+.cs__section--text .cs__body { width: 39.4%; }
+.cs__num {
+  color: #48484C;
+  font-size: clamp(13px, 1.5625vw, 30px);
+  letter-spacing: .078vw;
+  margin: 0;
+}
+.cs__h {
+  font-family: var(--jeju);
+  font-weight: 400;
+  font-size: clamp(26px, 3.125vw, 60px);    /* 60 */
+  color: #000;
+  line-height: 1.1;
+  margin: 0;
+}
+.cs__p {
+  color: #000;
+  font-size: clamp(13px, 1.5625vw, 30px);
+  letter-spacing: .078vw;
+  margin: 0;
+}
+.cs__img {
+  width: 49.5%;                             /* 886 / 1790 */
+  border-radius: 1.5625vw;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.cs__gallery {
+  margin-top: 6.25vw;                       /* gap 120 */
+}
+.cs__gallery img {
+  width: 100%;
+  border-radius: 1.5625vw;
+  display: block;
+}
+.cs__gallery--cols {
+  column-count: 2;
+  column-gap: 1.17vw;                       /* 21 */
+}
+.cs__gallery--cols img { margin-bottom: 1.17vw; break-inside: avoid; }
 
 /* ---------------------------------------------------------
    Footer — spec: #282828, Pragati Narrow 30
@@ -452,6 +487,14 @@ a.work__media:hover img { transform: scale(1.03); }
   .footer__grid { flex-direction: column; gap: 40px; padding: 40px 22px; }
   .footer__cols { flex-wrap: wrap; gap: 28px; }
   .footer__copy { margin-top: 32px; }
-  .case-head { padding: 150px 0 0; }
-  .block { grid-template-columns: 1fr; gap: 34px; padding-top: 80px; }
+  .pill--case a { font-size: 15px; gap: 10px; }
+  .pill--case .arrow { width: 15px; height: 15px; }
+  .cs { width: calc(100% - 44px); padding-top: 120px; }
+  .cs__meta { flex-direction: column; gap: 22px; }
+  .cs__meta-col { width: 100%; }
+  .cs__sections { margin-top: 60px; gap: 90px; }
+  .cs__section { flex-direction: column; gap: 24px; }
+  .cs__body, .cs__section--text .cs__body { width: 100%; gap: 22px; }
+  .cs__img { width: 100%; }
+  .cs__gallery--cols { column-count: 1; }
 }

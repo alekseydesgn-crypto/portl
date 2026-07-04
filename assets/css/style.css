@@ -51,50 +51,66 @@ img { display: block; max-width: 100%; }
    --------------------------------------------------------- */
 .site-header {
   position: fixed;
-  top: 5.104vw; left: 0; right: 0;
+  top: clamp(16px, 5.104vw, 98px); left: 0; right: 0;
   display: flex;
   justify-content: center;
   z-index: 200;
   pointer-events: none;
+  transition: transform .35s ease;
 }
+.site-header--hidden { transform: translateY(-200%); }
 .pill { pointer-events: auto; }
 
+/* spec: W641 H75 · padding 5/10/5/40 · r90 · 828282@60% · blur 10 · font 25 ls 1.25 */
 .pill--home {
+  width: min(641px, calc(100vw - 28px));
+  height: 75px;
   display: flex;
   align-items: center;
-  gap: 7.9167vw;                          /* 152px @1920 */
-  padding: 0.26vw 0.26vw 0.26vw 2.083vw;  /* 5 / 5 / 5 / 40 */
+  justify-content: space-between;
+  padding: 5px 10px 5px 40px;
   border-radius: var(--radius);
   background: rgba(130, 130, 130, .60);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  transition: background .35s ease, box-shadow .35s ease;
 }
 .pill__group {
   display: flex;
   align-items: center;
-  gap: 2.604vw;                            /* 50px */
+  gap: 50px;
 }
 .pill--home .pill__logo,
 .pill--home .pill__link {
   font-family: var(--narrow);
-  font-size: clamp(15px, 1.5625vw, 30px);
-  letter-spacing: .078vw;
+  font-size: 25px;
+  letter-spacing: 1.25px;
   color: #E5E5E5;
-  transition: opacity .2s ease;
+  transition: opacity .2s ease, color .35s ease;
 }
 .pill--home .pill__link:hover,
 .pill--home .pill__logo:hover { opacity: .8; }
+.pill__link--soon { cursor: default; }
+.pill__link--soon:hover { opacity: 1; }
 .pill--home .pill__cta {
-  padding: 0.365vw 2.083vw;                /* 7 / 40 */
+  padding: 7px 40px;
   border-radius: 70px;
   background: #000;
   color: #fff;
   font-family: var(--narrow);
-  font-size: clamp(15px, 1.5625vw, 30px);
-  letter-spacing: .078vw;
+  font-size: 25px;
+  letter-spacing: 1.25px;
   transition: transform .25s ease, background .25s ease;
 }
 .pill--home .pill__cta:hover { transform: translateY(-1px); background: #111; }
+
+/* after the header passes the hero frame — white pill, dark text */
+.site-header--light .pill--home {
+  background: rgba(255, 255, 255, .85);
+  box-shadow: inset 0 0 0 1px rgba(72, 72, 76, .25);
+}
+.site-header--light .pill--home .pill__logo,
+.site-header--light .pill--home .pill__link { color: #282828; }
 
 /* case pages pill — kept from the case design */
 .pill--case {
@@ -132,14 +148,23 @@ img { display: block; max-width: 100%; }
   position: relative;
   border-radius: 1.5625vw;                 /* 30px */
   overflow: hidden;
+  aspect-ratio: 1790 / 903;                /* spec: 1790×903, bg cropped from top */
 }
-.hero__bg { width: 100%; display: block; }
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
 
+/* copy — bottom-left, padding 80, gap 10 */
 .hero__copy {
   position: absolute;
-  top: 28.47%;                             /* 305.5 / 1073 */
-  left: 0; right: 0;
-  text-align: center;
+  left: 4.167vw;                           /* 80px */
+  bottom: 4.167vw;
+  text-align: left;
   color: #fff;
 }
 .hero__title {
@@ -156,24 +181,14 @@ img { display: block; max-width: 100%; }
   font-size: clamp(24px, 4.1667vw, 80px);  /* 80px */
   letter-spacing: .2083vw;                 /* 4px */
   line-height: 1;
-  margin: .42vw 0 0;                       /* gap 8 */
+  margin: .52vw 0 0;                       /* gap 10 */
 }
-
-/* service cards — cropped 1:1 from the design */
-.hero__card {
-  position: absolute;
-  top: 62.17%;
-  border-radius: 1.04vw;                   /* 20px */
-}
-.hero__card--1 { left: 25.39%; width: 15.12%; }
-.hero__card--2 { left: 42.86%; width: 15.23%; }
-.hero__card--3 { left: 59.88%; width: 15.35%; }
 
 /* ---------------------------------------------------------
    Works — spec: image 49.44% · gap 21 · r30
    --------------------------------------------------------- */
 .works {
-  padding: 6.77vw 3.385vw 0;               /* gap 130 from hero */
+  padding: 3.125vw 3.385vw 0;              /* gap 60 from hero */
 }
 .work {
   display: grid;
@@ -213,14 +228,18 @@ img { display: block; max-width: 100%; }
   margin-top: 2.083vw;                     /* gap 40 */
   padding: 0.52vw 1.5625vw;                /* 10 / 30 */
   background: var(--btn-bg);
+  box-shadow: inset 0 0 0 1px var(--btn-bg);
   color: #fff;
   font-family: var(--narrow);
   font-size: clamp(13px, 1.5625vw, 30px);
   letter-spacing: .078vw;
   border-radius: 0;
-  transition: transform .2s ease, opacity .2s ease;
+  transition: background .25s ease, color .25s ease;
 }
-a.btn:hover { transform: translateY(-2px); opacity: .9; }
+a.btn:hover {                               /* inverted colors on hover */
+  background: #fff;
+  color: var(--btn-bg);
+}
 
 .work__media {
   display: block;
@@ -234,30 +253,30 @@ a.btn:hover { transform: translateY(-2px); opacity: .9; }
 }
 a.work__media:hover img { transform: scale(1.03); }
 
-/* Dentalogica — no page yet: “soon” badge on hover */
+/* Dentalogica — no page yet: “coming soon” badge follows the cursor (top-left of it) */
+.work--soon,
 .work--soon .work__media,
 .work--soon .btn { cursor: default; }
+.work--soon .btn:hover { background: var(--btn-bg); color: #fff; }
 .soon-badge {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(.94);
-  padding: 0.6vw 2.6vw;
+  position: fixed;
+  left: 0; top: 0;
+  padding: 8px 26px;
   border-radius: 70px;
-  background: rgba(0, 0, 0, .82);
+  background: rgba(0, 0, 0, .85);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: #fff;
   font-family: var(--narrow);
-  font-size: clamp(15px, 1.5625vw, 30px);
-  letter-spacing: .078vw;
+  font-size: clamp(15px, 1.3vw, 25px);
+  letter-spacing: 1.25px;
+  white-space: nowrap;
   opacity: 0;
-  transition: opacity .3s ease, transform .3s ease;
+  transition: opacity .25s ease;
   pointer-events: none;
+  z-index: 300;
 }
-.work--soon:hover .soon-badge {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
+.soon-badge.is-on { opacity: 1; }
 
 /* ---------------------------------------------------------
    Case study pages (unchanged design)
@@ -350,8 +369,8 @@ a.work__media:hover img { transform: scale(1.03); }
   padding: 3.07vw 3.385vw 3.07vw 2.45vw;   /* top 59 · left 47 */
 }
 .footer__lead {
-  font-size: clamp(14px, 1.5625vw, 30px);
-  letter-spacing: .078vw;
+  font-size: clamp(14px, 1.302vw, 25px);
+  letter-spacing: .065vw;
   margin: 0 0 .83vw;                       /* gap 16 */
 }
 .footer__cities { list-style: none; margin: 0; padding: 0; }
@@ -359,7 +378,7 @@ a.work__media:hover img { transform: scale(1.03); }
   display: flex;
   align-items: center;
   gap: 1.15vw;                             /* 22px */
-  font-size: clamp(14px, 1.5625vw, 30px);
+  font-size: clamp(14px, 1.302vw, 25px);
   letter-spacing: .078vw;
   margin-bottom: .6vw;
 }
@@ -371,7 +390,7 @@ a.work__media:hover img { transform: scale(1.03); }
 }
 .footer__copy {
   color: var(--dark-mut);
-  font-size: clamp(14px, 1.5625vw, 30px);
+  font-size: clamp(14px, 1.302vw, 25px);
   letter-spacing: .078vw;
   margin: 6.72vw 0 0;                      /* gap 129 */
 }
@@ -381,7 +400,7 @@ a.work__media:hover img { transform: scale(1.03); }
 }
 .footer__col h4 {
   font-weight: 400;
-  font-size: clamp(14px, 1.5625vw, 30px);
+  font-size: clamp(14px, 1.302vw, 25px);
   letter-spacing: .078vw;
   color: var(--dark-mut);
   margin: 0 0 1.7vw;                       /* ~33px */
@@ -390,7 +409,7 @@ a.work__media:hover img { transform: scale(1.03); }
 .footer__col a,
 .footer__soon {
   color: var(--dark-ink);
-  font-size: clamp(14px, 1.5625vw, 30px);
+  font-size: clamp(14px, 1.302vw, 25px);
   letter-spacing: .078vw;
   transition: opacity .2s ease;
 }

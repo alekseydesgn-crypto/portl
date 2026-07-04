@@ -12,28 +12,26 @@
 </head>
 <body>
 
-  <!-- Header pill — spec: top 98, padding 5/5/5/40, r90, fill 828282@60%, blur 10, gap 152 -->
+  <!-- Header pill — spec: 641×75, top 98, padding 5/10/5/40, r90, fill 828282@60%, blur 10 -->
   <header class="site-header">
     <nav class="pill pill--home">
       <a class="pill__logo" href="index.html">Aleksey</a>
       <div class="pill__group">
         <a class="pill__link" href="index.html">Home</a>
+        <span class="pill__link pill__link--soon">About</span>
         <a class="pill__cta" href="mailto:alekseydesgn@gmail.com">Chat</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero — grain background 1:1 from the design, live text over it -->
+  <!-- Hero — grain background 1:1 from the design, copy bottom-left -->
   <section class="hero">
     <div class="hero__panel">
       <img class="hero__bg" src="assets/img/hero-grain.jpg" alt="" aria-hidden="true" />
       <div class="hero__copy">
         <h1 class="hero__title">Web designer</h1>
-        <p class="hero__sub">I do it matters to us</p>
+        <p class="hero__sub">I do it matters to me</p>
       </div>
-      <img class="hero__card hero__card--1" src="assets/img/card-ux.jpg" alt="UX UI Design" />
-      <img class="hero__card hero__card--2" src="assets/img/card-branding.jpg" alt="Branding" />
-      <img class="hero__card hero__card--3" src="assets/img/card-webdev.jpg" alt="Web dev" />
     </div>
   </section>
 
@@ -73,8 +71,8 @@
       </div>
       <div class="work__media">
         <img src="assets/img/dental-thumb.jpg" alt="Dentalogica clinic branding" />
-        <span class="soon-badge">soon</span>
       </div>
+      <span class="soon-badge" aria-hidden="true">coming soon</span>
     </article>
   </main>
 
@@ -109,5 +107,6 @@
     </div>
   </footer>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

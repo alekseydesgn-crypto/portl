@@ -77,8 +77,9 @@ img { display: block; max-width: 100%; }
 }
 .pill--home .pill__link:hover,
 .pill--home .pill__logo:hover { opacity: .8; }
-.pill__link--soon { cursor: default; }
-.pill__link--soon:hover { opacity: 1; }
+/* non-current nav item is muted (the disabled-button gray) */
+.pill--home .pill__link.is-muted,
+.site-header--light .pill--home .pill__link.is-muted { color: #A4A4A4; }
 .pill--home .pill__cta {
   padding: 7px 28px;
   border-radius: 70px;
@@ -415,6 +416,138 @@ a.work__media:hover img { transform: scale(1.03); }
 .chat-close:hover { transform: scale(1.15); opacity: .8; }
 
 /* ---------------------------------------------------------
+   About page
+   --------------------------------------------------------- */
+.about {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: min(9.9vw, 128px) min(3.385vw, 44px) 0;
+}
+.about__top { display: grid; grid-template-columns: 1fr 30%; gap: 5%; align-items: start; }
+.about__left { display: flex; flex-direction: column; }
+.about__h {
+  font-family: var(--jeju);
+  font-weight: 400;
+  font-size: clamp(30px, 3.6vw, 46px);
+  color: #1C1C1C;
+  line-height: 1.1;
+  margin: 0 0 min(1.8vw, 24px);
+}
+.about__lead {
+  font-size: clamp(14px, 1.5625vw, 20px);
+  letter-spacing: .3px;
+  color: #1C1C1C;
+  line-height: 1.5;
+  max-width: 60ch;
+  margin: 0 0 14px;
+}
+.about__lead--sub { margin-top: 8px; }
+.about__exp { margin: min(3.2vw, 42px) 0 0; display: flex; flex-direction: column; gap: min(1.4vw, 18px); }
+.about__exp-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  font-size: clamp(13px, 1.5625vw, 20px);
+  letter-spacing: .3px;
+}
+.about__exp-name { color: #1C1C1C; }
+.about__exp-role { color: #A4A4A4; margin-left: 14px; }
+.about__exp-date { color: #A4A4A4; white-space: nowrap; }
+
+.about__cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+  font-size: clamp(14px, 1.5625vw, 20px);
+  letter-spacing: .3px;
+  color: #1C1C1C;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity .2s ease;
+}
+.about__cv:hover { opacity: .6; }
+
+.about__right { display: flex; flex-direction: column; gap: min(2.2vw, 28px); }
+.about__portrait { width: 100%; border-radius: min(1.5625vw, 20px); display: block; }
+
+/* card look shared by Photos + Playlist */
+.about__card {
+  position: relative;
+  display: block;
+  border-radius: min(1.5625vw, 20px);
+  overflow: hidden;
+  cursor: pointer;
+}
+.about__card img { width: 100%; display: block; }
+.about__card-title {
+  position: absolute;
+  top: min(1.4vw, 20px); left: min(1.4vw, 22px);
+  color: #fff;
+  font-size: clamp(15px, 1.5625vw, 20px);
+  letter-spacing: .3px;
+  z-index: 2;
+  text-shadow: 0 1px 6px rgba(0,0,0,.35);
+}
+.ring {
+  position: absolute;
+  top: min(1.4vw, 20px); right: min(1.4vw, 22px);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.55);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: transform .2s ease, background .2s ease;
+}
+.ring::after { content: ""; width: 8px; height: 8px; border: 2px solid #fff; border-radius: 50%; }
+.about__card:hover .ring { transform: scale(1.1); background: rgba(0,0,0,.75); }
+.about__cv .ring--inline { position: static; width: 22px; height: 22px; background: transparent; }
+.about__cv .ring--inline::after { border-color: #1C1C1C; }
+
+.about__photos { margin-top: min(2.6vw, 34px); }
+.about__photos img { aspect-ratio: 1180 / 980; object-fit: cover; }
+
+.about__playlist { background: #0d0d0d; }
+.about__playlist img { aspect-ratio: 402 / 300; object-fit: cover; object-position: center; opacity: .95; }
+
+/* ---------------------------------------------------------
+   Photos overlay (grid from зрщещы.pdf)
+   --------------------------------------------------------- */
+.photos-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: rgba(255, 255, 255, .98);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+.photos-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
+.photos-overlay__inner { max-width: var(--maxw); margin: 0 auto; padding: min(5vw, 60px) min(3.385vw, 44px) 80px; }
+.photos-overlay__head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 min(3vw, 40px); }
+.photos-overlay__title { font-size: clamp(18px, 1.8vw, 26px); letter-spacing: .3px; color: #1C1C1C; margin: 0; }
+.photos-close {
+  width: 34px; height: 34px; border-radius: 50%; border: 2px solid #1C1C1C;
+  background: transparent; cursor: pointer; position: relative; transition: transform .2s ease, opacity .2s ease;
+}
+.photos-close::before, .photos-close::after {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 2px; background: #1C1C1C;
+}
+.photos-close::before { transform: translate(-50%,-50%) rotate(45deg); }
+.photos-close::after { transform: translate(-50%,-50%) rotate(-45deg); }
+.photos-close:hover { transform: scale(1.1); opacity: .7; }
+.photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: min(1.7vw, 22px); }
+.photos-grid img {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: min(1.25vw, 16px); display: block;
+}
+
+/* ---------------------------------------------------------
    Responsive
    --------------------------------------------------------- */
 @media (max-width: 760px) {
@@ -445,4 +578,12 @@ a.work__media:hover img { transform: scale(1.03); }
   .footer__copy { margin-top: 28px; }
   .chat-card { grid-template-columns: 1fr; padding: 26px 20px; overflow: auto; }
   .chat-card__art img { max-height: 180px; }
+  .about { padding: 104px 16px 0; }
+  .about__top { grid-template-columns: 1fr; gap: 34px; }
+  .about__right { order: 2; }
+  .about__cv { justify-self: start; }
+  .about__exp-row { grid-template-columns: 1fr; gap: 2px; }
+  .about__exp-date { grid-column: 1; }
+  .photos-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .photos-overlay__inner { padding: 64px 16px 60px; }
 }

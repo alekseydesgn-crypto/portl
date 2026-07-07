@@ -92,6 +92,28 @@
     });
   }
 
+  /* --- Photos overlay (About page) -------------------------- */
+  var photosOverlay = document.getElementById('photosOverlay');
+  var photosOpen = document.getElementById('photosOpen');
+  if (photosOverlay && photosOpen) {
+    var photosClose = document.getElementById('photosClose');
+    var openPhotos = function () {
+      photosOverlay.classList.add('is-open');
+      photosOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    var closePhotos = function () {
+      photosOverlay.classList.remove('is-open');
+      photosOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    photosOpen.addEventListener('click', openPhotos);
+    photosClose.addEventListener('click', closePhotos);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && photosOverlay.classList.contains('is-open')) closePhotos();
+    });
+  }
+
   /* --- Dentalogica: "coming soon" badge follows the cursor
          (appears to the top-left of it) ------------------------- */
   var soonWork = document.querySelector('.work--soon');

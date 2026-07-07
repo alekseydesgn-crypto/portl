@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Aleksey</title>
+  <meta name="description" content="Aleksey — front-end developer and web designer. Figma to shipped code." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&family=EB+Garamond:ital@1&family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header site-header--light">
+    <nav class="pill pill--home">
+      <a class="pill__logo" href="index.html">Aleksey</a>
+      <div class="pill__group">
+        <a class="pill__link is-muted" href="index.html">Home</a>
+        <a class="pill__link is-active" href="about.html">About</a>
+        <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen">Chat</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="about">
+    <div class="about__top">
+      <div class="about__left">
+        <h1 class="about__h">Hey, I&rsquo;m Alexey</h1>
+        <p class="about__lead">Front-end developer and web designer, freelancing solo for two years: Figma to shipped code, no agency, no handoff. I care more about how it works in the real product than how it looks in a mockup.</p>
+        <p class="about__lead about__lead--sub">Outside of work: photographing nature and reading.</p>
+
+        <div class="about__exp">
+          <div class="about__exp-row">
+            <div><span class="about__exp-name">Dentologica</span><span class="about__exp-role">Web and Graphic design</span></div>
+            <div class="about__exp-date">march – june 2026</div>
+          </div>
+          <div class="about__exp-row">
+            <div><span class="about__exp-name">FORCE Cyber Club</span><span class="about__exp-role">Web design</span></div>
+            <div class="about__exp-date">march – june 2026</div>
+          </div>
+          <div class="about__exp-row">
+            <div><span class="about__exp-name">Pushi Ushi</span><span class="about__exp-role">Web design</span></div>
+            <div class="about__exp-date">january – february 2026</div>
+          </div>
+          <div class="about__exp-row">
+            <div><span class="about__exp-name">DK Films</span><span class="about__exp-role">UX/UI design</span></div>
+            <div class="about__exp-date">october 2024 - december 2025</div>
+          </div>
+        </div>
+
+        <button class="about__card about__photos" id="photosOpen" type="button" aria-label="Open photos">
+          <span class="about__card-title">Photos</span>
+          <span class="ring" aria-hidden="true"></span>
+          <img src="assets/img/photo-01.jpg" alt="Nature photography" />
+        </button>
+      </div>
+
+      <div class="about__right">
+        <a class="about__cv" href="cv.pdf" download>Download CV <span class="ring ring--inline" aria-hidden="true"></span></a>
+        <img class="about__portrait" src="assets/img/about-me.jpg" alt="Aleksey" />
+        <a class="about__card about__playlist" href="https://open.spotify.com/playlist/3dpL3M60Auui4uR25bFsaI?si=f7cfb4b39f204bca" target="_blank" rel="noopener" aria-label="Open playlist">
+          <span class="about__card-title">Playlist</span>
+          <span class="ring" aria-hidden="true"></span>
+          <img src="assets/img/playlist.jpg" alt="Playlist" />
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Photos overlay · grid -->
+  <div class="photos-overlay" id="photosOverlay" aria-hidden="true">
+    <div class="photos-overlay__inner">
+      <div class="photos-overlay__head">
+        <p class="photos-overlay__title">Photos</p>
+        <button class="photos-close" id="photosClose" type="button" aria-label="Close"></button>
+      </div>
+      <div class="photos-grid">
+        <img src="assets/img/photo-01.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-02.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-03.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-04.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-05.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-06.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-07.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-08.jpg" alt="" loading="lazy" />
+        <img src="assets/img/photo-09.jpg" alt="" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__left">
+        <p class="footer__lead">Let&rsquo;s make something</p>
+        <ul class="footer__cities">
+          <li><span class="dot"></span> Belgrade</li>
+          <li><span class="dot"></span> Moscow</li>
+        </ul>
+        <p class="footer__copy">© 2026 Avos</p>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="about.html">About</a></p>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <p><a href="mailto:alekseydesgn@gmail.com">alekseydesgn@gmail.com</a></p>
+          <p><a href="https://t.me/fiftyc50" target="_blank" rel="noopener">Telegram</a></p>
+        </div>
+        <div class="footer__col">
+          <h4>Social</h4>
+          <p><a href="https://www.instagram.com/alekseygsgn/" target="_blank" rel="noopener">Instagram</a></p>
+          <p><a href="https://www.linkedin.com/in/aleksey-valeev-159538419/" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

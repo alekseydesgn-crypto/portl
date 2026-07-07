@@ -458,8 +458,8 @@ a.work__media:hover img { transform: scale(1.03); }
 .about__cv {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  justify-self: end;
+  gap: 10px;
+  align-self: flex-end;
   font-size: clamp(14px, 1.5625vw, 20px);
   letter-spacing: .3px;
   color: #1C1C1C;
@@ -476,6 +476,14 @@ a.work__media:hover img { transform: scale(1.03); }
 .about__card {
   position: relative;
   display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
   border-radius: min(1.5625vw, 20px);
   overflow: hidden;
   cursor: pointer;
@@ -490,21 +498,27 @@ a.work__media:hover img { transform: scale(1.03); }
   z-index: 2;
   text-shadow: 0 1px 6px rgba(0,0,0,.35);
 }
-/* ⊙ button — gray disc with a dark ring (matches the design icon) */
+/* ⊙ button — small; black 60% disc with a white ring (on cards) */
 .ring {
   position: absolute;
-  top: min(1.4vw, 18px); right: min(1.4vw, 20px);
-  width: 38px; height: 38px;
+  top: min(1.4vw, 16px); right: min(1.4vw, 16px);
+  width: 28px; height: 28px;
   border-radius: 50%;
-  background: #a8a8a8;
+  background: rgba(0, 0, 0, .6);
   display: flex; align-items: center; justify-content: center;
   z-index: 2;
   transition: transform .2s ease;
 }
-.ring::after { content: ""; width: 11px; height: 11px; border: 2.5px solid #1c1c1c; border-radius: 50%; }
+.ring::after { content: ""; width: 8px; height: 8px; border: 2px solid #fff; border-radius: 50%; }
 .about__card:hover .ring { transform: scale(1.1); }
-.about__cv .ring--inline { position: static; width: 20px; height: 20px; }
-.about__cv .ring--inline::after { width: 6px; height: 6px; border-width: 2px; }
+/* Download CV — no fill, just a small dark circle outline */
+.about__cv .ring--inline {
+  position: static;
+  width: 15px; height: 15px;
+  background: transparent;
+  border: 1.5px solid #1c1c1c;
+}
+.about__cv .ring--inline::after { display: none; }
 
 .about__photos { margin-top: min(2.6vw, 34px); }
 .about__photos img { aspect-ratio: 1180 / 980; object-fit: cover; }
@@ -589,7 +603,7 @@ a.work__media:hover img { transform: scale(1.03); }
   .about { padding: 104px 16px 0; }
   .about__top { grid-template-columns: 1fr; gap: 34px; }
   .about__right { order: 2; }
-  .about__cv { justify-self: start; }
+  .about__cv { align-self: flex-start; }
   .about__exp-row { grid-template-columns: 1fr; gap: 2px; }
   .about__exp-date { grid-column: 1; }
   .photos-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }

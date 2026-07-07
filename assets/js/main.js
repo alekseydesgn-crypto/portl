@@ -109,6 +109,7 @@
     };
     photosOpen.addEventListener('click', openPhotos);
     photosClose.addEventListener('click', closePhotos);
+    photosOverlay.addEventListener('click', function (e) { if (e.target === photosOverlay) closePhotos(); });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && photosOverlay.classList.contains('is-open')) closePhotos();
     });

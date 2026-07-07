@@ -514,7 +514,7 @@ a.work__media:hover img { transform: scale(1.03); }
 /* Download CV — no fill, just a small dark circle outline */
 .about__cv .ring--inline {
   position: static;
-  width: 15px; height: 15px;
+  width: 12px; height: 12px;
   background: transparent;
   border: 1.5px solid #1c1c1c;
 }
@@ -541,32 +541,42 @@ a.work__media:hover img { transform: scale(1.03); }
   position: fixed;
   inset: 0;
   z-index: 400;
-  background: rgba(255, 255, 255, .98);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: rgba(0, 0, 0, .55);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity .3s ease, visibility .3s ease;
 }
 .photos-overlay.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
-.photos-overlay__inner { max-width: var(--maxw); margin: 0 auto; padding: min(5vw, 60px) min(3.385vw, 44px) 80px; }
-.photos-overlay__head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 min(3vw, 40px); }
-.photos-overlay__title { font-size: clamp(18px, 1.8vw, 26px); letter-spacing: .3px; color: #1C1C1C; margin: 0; }
+.photos-overlay__inner {
+  position: relative;
+  width: min(1080px, 94vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: 34px 34px 40px;
+  transform: translateY(14px) scale(.98);
+  transition: transform .3s ease;
+}
+.photos-overlay.is-open .photos-overlay__inner { transform: none; }
+.photos-overlay__head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px; }
+.photos-overlay__title { font-size: clamp(18px, 1.6vw, 24px); letter-spacing: .3px; color: #1C1C1C; margin: 0; }
 .photos-close {
-  width: 34px; height: 34px; border-radius: 50%; border: 2px solid #1C1C1C;
-  background: transparent; cursor: pointer; position: relative; transition: transform .2s ease, opacity .2s ease;
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1.5px solid #1C1C1C; background: transparent; cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease;
 }
-.photos-close::before, .photos-close::after {
-  content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 2px; background: #1C1C1C;
-}
-.photos-close::before { transform: translate(-50%,-50%) rotate(45deg); }
-.photos-close::after { transform: translate(-50%,-50%) rotate(-45deg); }
-.photos-close:hover { transform: scale(1.1); opacity: .7; }
-.photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: min(1.7vw, 22px); }
+.photos-close:hover { transform: scale(1.12); opacity: .6; }
+.photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .photos-grid img {
   width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
-  border-radius: min(1.25vw, 16px); display: block;
+  border-radius: 14px; display: block;
 }
 
 /* ---------------------------------------------------------

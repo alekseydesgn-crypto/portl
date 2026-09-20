@@ -6,7 +6,7 @@ design (Figma slides). No build step — plain HTML/CSS with a touch of JS.
 ## Pages
 - `index.html` — home: hero, three service cards, selected works.
 - `emarket.html` — case study: eMarket (mobile app concept).
-- `force-drop-zone.html` — case study: Force Drop Zone (gaming landing).
+- `force-drop-zone.html` — case study: Force Drop Zone (gaming landing + franchise sales system).
 - `dentalogica.html` — case study: Dentalogica (dental clinic branding).
 
 ## Header (reproduced from the design spec)

@@ -33,6 +33,7 @@ body {
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
@@ -127,6 +128,20 @@ img { display: block; max-width: 100%; }
 }
 .pill--case a:hover { opacity: .55; }
 .pill--case .arrow { width: 20px; height: 20px; flex: none; }
+.pill__locale {
+  appearance: none;
+  border: 0;
+  border-left: 1px solid rgba(28, 28, 28, .25);
+  background: transparent;
+  padding: 2px 0 2px 20px;
+  color: #1C1C1C;
+  font-family: var(--narrow);
+  font-size: 17px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.pill__locale:hover { opacity: .55; }
 
 /* ---------------------------------------------------------
    Home — hero (grain 1:1 from the design)
@@ -299,8 +314,6 @@ a.work__media:hover img { transform: scale(1.03); }
   transition: background .2s ease, color .2s ease, transform .2s ease;
 }
 .cs__top-link:hover { background: #000; transform: translateY(-1px); }
-.cs__top-link--muted { background: #F0F0F0; color: #1C1C1C; }
-.cs__top-link--muted:hover { background: #E2E2E2; }
 .cs__sections {
   margin-top: min(7.81vw, 102px);
   display: flex;
@@ -371,6 +384,9 @@ a.work__media:hover img { transform: scale(1.03); }
   color: #000;
   margin: 0 0 min(2.08vw, 27px);
 }
+.cs__franchise-title--small {
+  font-size: clamp(28px, 3.125vw, 40px);
+}
 .cs__franchise-visual {
   margin-top: min(6.25vw, 81px);
   border-radius: min(1.5625vw, 20px);
@@ -378,6 +394,51 @@ a.work__media:hover img { transform: scale(1.03); }
   background: #090909;
 }
 .cs__franchise-visual img { width: 100%; display: block; }
+.cs__franchise-details {
+  margin-top: min(7.81vw, 102px);
+}
+.cs__franchise-details-head {
+  display: grid;
+  grid-template-columns: 39.4% 1fr;
+  gap: 4%;
+  align-items: start;
+}
+.cs__franchise-details-head > div { max-width: 700px; }
+.cs__franchise-points {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: min(4.17vw, 54px);
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+}
+.cs__franchise-point {
+  min-height: 190px;
+  padding: min(1.56vw, 20px) min(1.56vw, 20px) min(1.56vw, 20px) 0;
+  border-right: 1px solid #D9D9D9;
+}
+.cs__franchise-point + .cs__franchise-point { padding-left: min(1.56vw, 20px); }
+.cs__franchise-point:last-child { border-right: 0; }
+.cs__point-num {
+  color: #A4A4A4;
+  font-size: clamp(13px, 1.302vw, 17px);
+  letter-spacing: .5px;
+  margin: 0 0 min(2.08vw, 27px);
+}
+.cs__franchise-point h3 {
+  color: #1C1C1C;
+  font-family: var(--narrow);
+  font-size: clamp(17px, 1.823vw, 23px);
+  font-weight: 400;
+  letter-spacing: .6px;
+  margin: 0 0 12px;
+}
+.cs__franchise-point > p:last-child {
+  color: #A4A4A4;
+  font-size: clamp(13px, 1.302vw, 17px);
+  letter-spacing: .3px;
+  margin: 0;
+}
 /* ---------------------------------------------------------
    Footer
    --------------------------------------------------------- */
@@ -646,9 +707,13 @@ a.work__media:hover img { transform: scale(1.03); }
   .pill--home .pill__logo, .pill--home .pill__link, .pill--home .pill__cta { font-size: 15px; }
   .pill--home .pill__cta { padding: 7px 18px; }
   .pill__group { gap: 16px; }
-  .pill--case { height: 50px; padding: 5px 24px; }
-  .pill--case a { font-size: 15px; gap: 10px; }
+  .pill--case { width: 100%; max-width: calc(100vw - 32px); height: 50px; padding: 5px 14px; gap: 8px; overflow: hidden; }
+  .pill--case a { min-width: 0; font-size: 13px; gap: 6px; white-space: nowrap; }
+  .pill--case > a:first-child { flex-shrink: 1; }
+  .pill--case > a:first-child span { overflow: hidden; text-overflow: ellipsis; }
+  .pill--case > a:nth-child(2) { margin-left: auto; }
   .pill--case .arrow { width: 15px; height: 15px; }
+  .pill__locale { flex: 0 0 auto; padding-left: 10px; font-size: 13px; }
   .hero { padding: 56px 14px 0; }
   .works { padding: 44px 14px 0; }
   .work { grid-template-columns: 1fr; gap: 16px; margin: 0 0 56px; }
@@ -666,6 +731,15 @@ a.work__media:hover img { transform: scale(1.03); }
   .cs__franchise-intro { grid-template-columns: 1fr; gap: 22px; }
   .cs__franchise-title { font-size: clamp(30px, 9vw, 48px); }
   .cs__franchise-visual { margin-top: 42px; border-radius: 12px; }
+  .cs__franchise-details { margin-top: 70px; }
+  .cs__franchise-details-head { grid-template-columns: 1fr; gap: 22px; }
+  .cs__franchise-title--small { font-size: clamp(28px, 8vw, 42px); }
+  .cs__franchise-points { grid-template-columns: 1fr 1fr; }
+  .cs__franchise-point { min-height: 0; padding: 18px 16px 22px 0; }
+  .cs__franchise-point + .cs__franchise-point { padding-left: 16px; }
+  .cs__franchise-point:nth-child(2) { border-right: 0; }
+  .cs__franchise-point:nth-child(3), .cs__franchise-point:nth-child(4) { border-top: 1px solid #D9D9D9; }
+  .cs__franchise-point:nth-child(3) { padding-left: 0; }
   .footer { margin-top: 72px; }
   .footer__grid { flex-direction: column; gap: 36px; padding: 40px 16px; }
   .footer__cols { flex-wrap: wrap; gap: 28px; }

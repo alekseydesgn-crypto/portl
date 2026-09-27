@@ -30,6 +30,45 @@
     update();
   }
 
+  /* --- Case language switch -------------------------------- */
+  var languageToggle = document.getElementById('languageToggle');
+  var translatedNodes = document.querySelectorAll('[data-ru][data-en]');
+  if (languageToggle && translatedNodes.length) {
+    var setLanguage = function (language) {
+      translatedNodes.forEach(function (node) {
+        var value = node.getAttribute('data-' + language);
+        if (node.getAttribute('data-html') === 'true') {
+          node.innerHTML = value;
+        } else {
+          node.textContent = value;
+        }
+      });
+
+      document.documentElement.lang = language;
+      languageToggle.textContent = language === 'ru' ? 'EN' : 'RU';
+      languageToggle.setAttribute('aria-label', language === 'ru' ? 'Переключить на английский' : 'Switch to Russian');
+      document.title = language === 'ru'
+        ? 'Force Drop Zone — клуб и франшиза — Aleksey'
+        : 'Force Drop Zone — club and franchise system — Aleksey';
+
+      var description = document.querySelector('meta[name="description"]');
+      if (description) {
+        description.setAttribute('content', language === 'ru'
+          ? 'Кейс Force Drop Zone: сайт клуба и отдельный раздел франшизы.'
+          : 'Force Drop Zone case study: a club website and a separate franchise section.');
+      }
+
+      try { localStorage.setItem('force-case-language', language); } catch (e) { /* private mode */ }
+    };
+
+    var savedLanguage = null;
+    try { savedLanguage = localStorage.getItem('force-case-language'); } catch (e) { /* private mode */ }
+    setLanguage(savedLanguage === 'en' ? 'en' : 'ru');
+    languageToggle.addEventListener('click', function () {
+      setLanguage(document.documentElement.lang === 'ru' ? 'en' : 'ru');
+    });
+  }
+
   /* --- Chat overlay → Telegram ----------------------------- */
   var TG_TOKEN = '8866080289:AAHEmRFxCWt7eFkYnB7yw8bSCuRG4_sTM20';
   var TG_CHAT_ID = '6793196451';

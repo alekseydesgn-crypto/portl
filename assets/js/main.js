@@ -147,21 +147,11 @@
     var photosClose = document.getElementById('photosClose');
     var photosViewer = document.getElementById('photosViewer');
     var photosCurrent = document.getElementById('photosCurrent');
-    var photosCount = document.getElementById('photosCount');
     var photoItems = Array.from(document.querySelectorAll('.photos-grid__item'));
     var photosThumbs = document.getElementById('photosThumbs');
-    var photosContent = photosViewer.querySelector('.photos-viewer__content');
     var photoCursor = document.getElementById('photoCursor');
     var thumbButtons = [];
     var currentPhoto = 0;
-    var alignPhotoStrip = function () {
-      photosContent.style.width = '100%';
-      requestAnimationFrame(function () {
-        if (!photosViewer.hidden) photosContent.style.width = Math.ceil(photosCurrent.getBoundingClientRect().width) + 'px';
-      });
-    };
-    photosCurrent.addEventListener('load', alignPhotoStrip);
-    window.addEventListener('resize', alignPhotoStrip);
     if (photosThumbs) {
       photoItems.forEach(function (item, index) {
         var thumb = document.createElement('button');
@@ -178,13 +168,11 @@
       currentPhoto = (index + photoItems.length) % photoItems.length;
       photosCurrent.src = photoItems[currentPhoto].querySelector('img').src;
       photosCurrent.alt = (document.documentElement.lang === 'ru' ? 'Фотография ' : 'Photo ') + (currentPhoto + 1);
-      photosCount.textContent = (currentPhoto + 1) + ' / ' + photoItems.length;
       thumbButtons.forEach(function (thumb, thumbIndex) { thumb.classList.toggle('is-active', thumbIndex === currentPhoto); });
       if (thumbButtons[currentPhoto]) thumbButtons[currentPhoto].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       photosViewer.hidden = false;
       photosOverlay.querySelector('.photos-overlay__inner').classList.add('is-viewing');
       document.getElementById('photosBack').hidden = false;
-      alignPhotoStrip();
       document.getElementById('photosBack').focus();
     };
     var showPhotoGrid = function () {
@@ -216,12 +204,29 @@
     document.getElementById('photosNext').addEventListener('click', function () { showPhoto(currentPhoto + 1); });
     photosOverlay.addEventListener('click', function (e) { if (e.target === photosOverlay) closePhotos(); });
     if (photoCursor && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      var cursorX = 0, cursorY = 0, targetX = 0, targetY = 0;
+      var cursorFrame = 0;
+      var moveCursor = function () {
+        cursorX += (targetX - cursorX) * .16;
+        cursorY += (targetY - cursorY) * .16;
+        photoCursor.style.left = cursorX + 'px';
+        photoCursor.style.top = cursorY + 'px';
+        if (Math.abs(targetX - cursorX) + Math.abs(targetY - cursorY) > .2) cursorFrame = requestAnimationFrame(moveCursor);
+        else cursorFrame = 0;
+      };
       photoItems.forEach(function (item) {
-        item.addEventListener('mouseenter', function () { photoCursor.classList.add('is-visible'); });
+        item.addEventListener('mouseenter', function (e) {
+          cursorX = targetX = e.clientX;
+          cursorY = targetY = e.clientY;
+          photoCursor.style.left = cursorX + 'px';
+          photoCursor.style.top = cursorY + 'px';
+          photoCursor.classList.add('is-visible');
+        });
         item.addEventListener('mouseleave', function () { photoCursor.classList.remove('is-visible'); });
         item.addEventListener('mousemove', function (e) {
-          photoCursor.style.left = e.clientX + 'px';
-          photoCursor.style.top = e.clientY + 'px';
+          targetX = e.clientX;
+          targetY = e.clientY;
+          if (!cursorFrame) cursorFrame = requestAnimationFrame(moveCursor);
         });
       });
     }

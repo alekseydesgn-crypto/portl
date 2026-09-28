@@ -150,9 +150,18 @@
     var photosCount = document.getElementById('photosCount');
     var photoItems = Array.from(document.querySelectorAll('.photos-grid__item'));
     var photosThumbs = document.getElementById('photosThumbs');
+    var photosContent = photosViewer.querySelector('.photos-viewer__content');
     var photoCursor = document.getElementById('photoCursor');
     var thumbButtons = [];
     var currentPhoto = 0;
+    var alignPhotoStrip = function () {
+      photosContent.style.width = '100%';
+      requestAnimationFrame(function () {
+        if (!photosViewer.hidden) photosContent.style.width = Math.ceil(photosCurrent.getBoundingClientRect().width) + 'px';
+      });
+    };
+    photosCurrent.addEventListener('load', alignPhotoStrip);
+    window.addEventListener('resize', alignPhotoStrip);
     if (photosThumbs) {
       photoItems.forEach(function (item, index) {
         var thumb = document.createElement('button');
@@ -175,6 +184,7 @@
       photosViewer.hidden = false;
       photosOverlay.querySelector('.photos-overlay__inner').classList.add('is-viewing');
       document.getElementById('photosBack').hidden = false;
+      alignPhotoStrip();
       document.getElementById('photosBack').focus();
     };
     var showPhotoGrid = function () {

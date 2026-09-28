@@ -30,10 +30,10 @@
     update();
   }
 
-  /* --- Case language switch -------------------------------- */
+  /* --- Site language switch -------------------------------- */
   var languageToggle = document.getElementById('languageToggle');
   var translatedNodes = document.querySelectorAll('[data-ru][data-en]');
-  if (languageToggle && translatedNodes.length) {
+  if (languageToggle) {
     var setLanguage = function (language) {
       translatedNodes.forEach(function (node) {
         var value = node.getAttribute('data-' + language);
@@ -47,22 +47,25 @@
       document.documentElement.lang = language;
       languageToggle.textContent = language === 'ru' ? 'EN' : 'RU';
       languageToggle.setAttribute('aria-label', language === 'ru' ? 'Переключить на английский' : 'Switch to Russian');
-      document.title = language === 'ru'
-        ? 'Force Drop Zone — клуб и франшиза — Aleksey'
-        : 'Force Drop Zone — club and franchise system — Aleksey';
+      var localizedTitle = document.documentElement.getAttribute('data-title-' + language);
+      if (localizedTitle) document.title = localizedTitle;
 
       var description = document.querySelector('meta[name="description"]');
-      if (description) {
-        description.setAttribute('content', language === 'ru'
-          ? 'Кейс Force Drop Zone: сайт клуба и отдельный раздел франшизы.'
-          : 'Force Drop Zone case study: a club website and a separate franchise section.');
-      }
+      var localizedDescription = document.documentElement.getAttribute('data-description-' + language);
+      if (description && localizedDescription) description.setAttribute('content', localizedDescription);
+      document.querySelectorAll('[data-placeholder-ru][data-placeholder-en]').forEach(function (node) {
+        node.placeholder = node.getAttribute('data-placeholder-' + language);
+      });
+      document.querySelectorAll('[data-aria-ru][data-aria-en]').forEach(function (node) {
+        node.setAttribute('aria-label', node.getAttribute('data-aria-' + language));
+      });
 
-      try { localStorage.setItem('force-case-language', language); } catch (e) { /* private mode */ }
+      try { localStorage.setItem('portfolio-language', language); } catch (e) { /* private mode */ }
+      document.dispatchEvent(new CustomEvent('portfolio:language', { detail: { language: language } }));
     };
 
     var savedLanguage = null;
-    try { savedLanguage = localStorage.getItem('force-case-language'); } catch (e) { /* private mode */ }
+    try { savedLanguage = localStorage.getItem('portfolio-language') || localStorage.getItem('force-case-language'); } catch (e) { /* private mode */ }
     setLanguage(savedLanguage === 'en' ? 'en' : 'ru');
     languageToggle.addEventListener('click', function () {
       setLanguage(document.documentElement.lang === 'ru' ? 'en' : 'ru');
@@ -104,11 +107,12 @@
       var name = form.name.value.trim();
       var note = form.note.value.trim();
       status.hidden = false;
-      if (!email || !name || !note) { status.textContent = 'Please fill in all fields.'; return; }
+      var isRussian = document.documentElement.lang === 'ru';
+      if (!email || !name || !note) { status.textContent = isRussian ? 'Заполни все поля.' : 'Please fill in all fields.'; return; }
 
       var btn = form.querySelector('.chat-send');
       btn.disabled = true;
-      status.textContent = 'Sending…';
+      status.textContent = isRussian ? 'Отправляю…' : 'Sending…';
 
       var text = '📩 New message from the portfolio\n\n' +
                  'Name: ' + name + '\n' +
@@ -121,12 +125,12 @@
         body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text })
       }).then(function (r) { return r.json(); }).then(function (d) {
         if (d.ok) {
-          status.textContent = 'Sent ✓ I’ll get back to you soon.';
+          status.textContent = isRussian ? 'Отправлено. Скоро отвечу.' : 'Sent. I’ll get back to you soon.';
           form.reset();
           setTimeout(closeChat, 1600);
         } else { throw new Error(d.description || 'error'); }
       }).catch(function () {
-        status.textContent = 'Could not send — write me at alekseydesgn@gmail.com';
+        status.textContent = isRussian ? 'Не удалось отправить. Напиши на alekseydesgn@gmail.com' : 'Could not send — write me at alekseydesgn@gmail.com';
       }).finally(function () { btn.disabled = false; });
     });
   }
@@ -136,22 +140,75 @@
   var photosOpen = document.getElementById('photosOpen');
   if (photosOverlay && photosOpen) {
     var photosClose = document.getElementById('photosClose');
+    var photosViewer = document.getElementById('photosViewer');
+    var photosCurrent = document.getElementById('photosCurrent');
+    var photosCount = document.getElementById('photosCount');
+    var photoItems = Array.from(document.querySelectorAll('.photos-grid__item'));
+    var currentPhoto = 0;
+    var showPhoto = function (index) {
+      currentPhoto = (index + photoItems.length) % photoItems.length;
+      photosCurrent.src = photoItems[currentPhoto].querySelector('img').src;
+      photosCurrent.alt = (document.documentElement.lang === 'ru' ? 'Фотография ' : 'Photo ') + (currentPhoto + 1);
+      photosCount.textContent = (currentPhoto + 1) + ' / ' + photoItems.length;
+      photosViewer.hidden = false;
+      photosOverlay.querySelector('.photos-overlay__inner').classList.add('is-viewing');
+      document.getElementById('photosBack').focus();
+    };
+    var showPhotoGrid = function () {
+      photosViewer.hidden = true;
+      photosOverlay.querySelector('.photos-overlay__inner').classList.remove('is-viewing');
+      photoItems[currentPhoto].focus();
+    };
     var openPhotos = function () {
       photosOverlay.classList.add('is-open');
       photosOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      photosClose.focus();
     };
     var closePhotos = function () {
       photosOverlay.classList.remove('is-open');
       photosOverlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      photosViewer.hidden = true;
+      photosOverlay.querySelector('.photos-overlay__inner').classList.remove('is-viewing');
+      photosOpen.focus();
     };
     photosOpen.addEventListener('click', openPhotos);
     photosClose.addEventListener('click', closePhotos);
+    photoItems.forEach(function (item, index) { item.addEventListener('click', function () { showPhoto(index); }); });
+    document.getElementById('photosBack').addEventListener('click', showPhotoGrid);
+    document.getElementById('photosPrev').addEventListener('click', function () { showPhoto(currentPhoto - 1); });
+    document.getElementById('photosNext').addEventListener('click', function () { showPhoto(currentPhoto + 1); });
     photosOverlay.addEventListener('click', function (e) { if (e.target === photosOverlay) closePhotos(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && photosOverlay.classList.contains('is-open')) closePhotos();
+      if (!photosOverlay.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { if (!photosViewer.hidden) showPhotoGrid(); else closePhotos(); }
+      if (!photosViewer.hidden && e.key === 'ArrowLeft') showPhoto(currentPhoto - 1);
+      if (!photosViewer.hidden && e.key === 'ArrowRight') showPhoto(currentPhoto + 1);
     });
+  }
+
+  var booksOverlay = document.getElementById('booksOverlay');
+  var booksOpen = document.getElementById('booksOpen');
+  if (booksOverlay && booksOpen) {
+    var booksTrack = document.getElementById('booksTrack');
+    var closeBooks = function () {
+      booksOverlay.classList.remove('is-open');
+      booksOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      booksOpen.focus();
+    };
+    booksOpen.addEventListener('click', function () {
+      booksOverlay.classList.add('is-open');
+      booksOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('booksClose').focus();
+    });
+    document.getElementById('booksClose').addEventListener('click', closeBooks);
+    booksOverlay.addEventListener('click', function (e) { if (e.target === booksOverlay) closeBooks(); });
+    document.getElementById('booksPrev').addEventListener('click', function () { booksTrack.scrollBy({ left: -booksTrack.clientWidth * .75, behavior: 'smooth' }); });
+    document.getElementById('booksNext').addEventListener('click', function () { booksTrack.scrollBy({ left: booksTrack.clientWidth * .75, behavior: 'smooth' }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && booksOverlay.classList.contains('is-open')) closeBooks(); });
   }
 
   /* --- Dentalogica: "coming soon" badge follows the cursor

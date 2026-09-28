@@ -55,7 +55,7 @@ img { display: block; max-width: 100%; }
 
 /* home pill (compact) */
 .pill--home {
-  width: min(500px, calc(100vw - 32px));
+  width: min(570px, calc(100vw - 32px));
   height: 56px;
   display: flex;
   align-items: center;
@@ -92,6 +92,13 @@ img { display: block; max-width: 100%; }
   transition: transform .25s ease, background .25s ease;
 }
 .pill--home .pill__cta:hover { transform: translateY(-1px); background: #111; }
+.pill__locale--home {
+  color: #E5E5E5;
+  border-left-color: rgba(255,255,255,.4);
+  padding-left: 12px;
+  flex: 0 0 auto;
+}
+.site-header--light .pill__locale--home { color: #282828; border-left-color: rgba(28,28,28,.28); }
 
 /* past the hero frame — white pill, dark text */
 .site-header--light .pill--home {
@@ -542,8 +549,8 @@ a.work__media:hover img { transform: scale(1.03); }
   margin: 0 auto;
   padding: min(9.9vw, 128px) min(3.385vw, 44px) 0;
 }
-.about__top { display: grid; grid-template-columns: 1fr 30%; gap: 5%; align-items: start; }
-.about__left { display: flex; flex-direction: column; }
+.about__top { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.about__left { display: flex; flex-direction: column; max-width: 1000px; }
 .about__h {
   font-family: var(--jeju);
   font-weight: 400;
@@ -561,6 +568,7 @@ a.work__media:hover img { transform: scale(1.03); }
   margin: 0 0 14px;
 }
 .about__lead--sub { margin-top: 8px; }
+.about__section-label { font-family: var(--narrow); font-size: clamp(17px, 1.56vw, 20px); font-weight: 400; margin: 38px 0 0; }
 .about__exp { margin: min(3.2vw, 42px) 0 0; display: flex; flex-direction: column; gap: min(1.4vw, 18px); }
 .about__exp-row {
   display: grid;
@@ -574,22 +582,16 @@ a.work__media:hover img { transform: scale(1.03); }
 .about__exp-role { color: #A4A4A4; margin-left: 14px; }
 .about__exp-date { color: #A4A4A4; white-space: nowrap; }
 
-.about__cv {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  align-self: flex-end;
-  font-size: clamp(14px, 1.5625vw, 20px);
-  letter-spacing: .3px;
-  color: #1C1C1C;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: opacity .2s ease;
-}
-.about__cv:hover { opacity: .6; }
-
-.about__right { display: flex; flex-direction: column; gap: min(2.2vw, 28px); }
 .about__portrait { width: 100%; border-radius: min(1.5625vw, 20px); display: block; }
+.about__socials { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 48px; }
+.about__socials a { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px 10px 10px; border: 1px solid #222; border-radius: 99px; font-size: clamp(15px, 1.56vw, 20px); transition: background .2s, color .2s; }
+.about__socials a:hover { background: #222; color: #fff; }
+.about__social-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #111; color: #fff; font-family: Arial, sans-serif; font-size: 20px; }
+.about__media-grid { display: grid; grid-template-columns: 1fr 1fr 1.3fr; grid-template-rows: repeat(2, minmax(180px, 1fr)); gap: 16px; margin-top: 32px; }
+.about__media-grid .about__photos { grid-column: 1 / 3; grid-row: 1 / 3; }
+.about__media-grid .about__books { grid-column: 3; grid-row: 2; }
+.about__media-grid .about__portrait { grid-column: 3; grid-row: 1; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.about__media-grid .about__playlist { grid-column: 1 / 3; grid-row: 3; }
 
 /* card look shared by Photos + Playlist */
 .about__card {
@@ -630,20 +632,16 @@ a.work__media:hover img { transform: scale(1.03); }
 }
 .ring::after { content: ""; width: 8px; height: 8px; border: 2px solid #fff; border-radius: 50%; }
 .about__card:hover .ring { transform: scale(1.1); }
-/* Download CV — no fill, just a small dark circle outline */
-.about__cv .ring--inline {
-  position: static;
-  width: 12px; height: 12px;
-  background: transparent;
-  border: 1.5px solid #1c1c1c;
-}
-.about__cv .ring--inline::after { display: none; }
-
-.about__photos { margin-top: min(2.6vw, 34px); }
-.about__photos img { aspect-ratio: 1180 / 980; object-fit: cover; }
+.about__photos img { width: 100%; height: 100%; object-fit: cover; }
+.about__books { min-height: 220px; background: #ddd9cc; }
+.about__books-preview { position: absolute; inset: 20% 5% 0; display: flex; align-items: flex-end; justify-content: center; gap: 2%; transform: rotate(-8deg) translateY(15%); }
+.about__books-preview i { display: grid; place-items: center; width: 22%; height: 78%; font: 700 12px Arial, sans-serif; font-style: normal; writing-mode: vertical-rl; letter-spacing: .08em; color: #eee; background: #2f4558; box-shadow: 6px 6px 12px #0003; }
+.about__books-preview i:nth-child(2) { height: 95%; background: #a96d4e; }
+.about__books-preview i:nth-child(3) { height: 83%; background: #1d282b; }
+.about__books-preview i:nth-child(4) { height: 88%; background: #9b8d69; }
 
 /* Playlist — dark card, turntable sits at the bottom-centre (clipped) */
-.about__playlist { position: relative; aspect-ratio: 517 / 279; background: #0d0d0d; }
+.about__playlist { position: relative; min-height: 220px; aspect-ratio: 517 / 279; background: #0d0d0d; }
 .about__playlist img {
   position: absolute;
   left: 50%; top: 27%;
@@ -697,16 +695,46 @@ a.work__media:hover img { transform: scale(1.03); }
   width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
   border-radius: 14px; display: block;
 }
+.photos-grid__item { display: block; width: 100%; padding: 0; border: 0; border-radius: 14px; background: transparent; cursor: zoom-in; }
+.photos-grid__item:focus-visible, .photos-viewer button:focus-visible, .books-carousel button:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+.photos-viewer[hidden] { display: none; }
+.photos-overlay__inner.is-viewing .photos-grid { display: none; }
+.photos-viewer__back { border: 0; background: none; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; }
+.photos-viewer__stage { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 12px; margin-top: 20px; }
+.photos-viewer__stage img { display: block; width: 100%; max-height: 68vh; object-fit: contain; }
+.photos-viewer__arrow, .books-carousel__arrow { width: 42px; height: 42px; border: 1px solid #bbb; border-radius: 50%; background: #fff; font-size: 30px; line-height: 1; cursor: pointer; }
+.photos-viewer__count { text-align: center; margin: 12px 0 0; color: #777; }
+.books-overlay { position: fixed; inset: 0; z-index: 410; display: grid; place-items: center; padding: 24px; background: #0009; backdrop-filter: blur(8px); visibility: hidden; opacity: 0; pointer-events: none; transition: opacity .25s, visibility .25s; }
+.books-overlay.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
+.books-overlay__inner { width: min(1100px, 96vw); max-height: 90vh; overflow: auto; border-radius: 24px; background: #fff; padding: 34px; }
+.books-overlay__subtitle { margin: 6px 0 0; font-size: 16px; color: #777; }
+.books-carousel { display: grid; grid-template-columns: 42px minmax(0, 1fr) 42px; gap: 12px; align-items: center; }
+.books-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 6px 2px 20px; }
+.books-track::-webkit-scrollbar { display: none; }
+.book { flex: 0 0 clamp(160px, 19vw, 220px); scroll-snap-align: start; }
+.book__cover { aspect-ratio: 2 / 3; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 16px; box-shadow: 7px 10px 15px #0002; color: #fff; background: #19384e; }
+.book__cover span, .book__cover small { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: .08em; }
+.book__cover strong { font-family: Georgia, serif; font-size: clamp(22px, 2.4vw, 30px); line-height: 1; }
+.book h3 { margin: 16px 0 3px; font-size: 20px; font-weight: 400; }
+.book > p { margin: 0; font-size: 15px; color: #888; }
+.book--gatsby .book__cover { background: radial-gradient(circle at 60% 60%, #e7c471 0 8%, transparent 9%), #19384e; }
+.book--expectations .book__cover { background: #7d3f32; }
+.book--krug .book__cover { background: #9c723b; }
+.book--ui .book__cover { background: #264a72; }
+.book--bets .book__cover { background: #151a25; }
+.book--cafe .book__cover { background: #70836c; }
+.book--villa .book__cover { background: #ad796b; }
 
 /* ---------------------------------------------------------
    Responsive
    --------------------------------------------------------- */
 @media (max-width: 760px) {
   .site-header { top: 14px; }
-  .pill--home { gap: 20px; padding: 4px 4px 4px 20px; height: 50px; }
-  .pill--home .pill__logo, .pill--home .pill__link, .pill--home .pill__cta { font-size: 15px; }
-  .pill--home .pill__cta { padding: 7px 18px; }
-  .pill__group { gap: 16px; }
+  .pill--home { gap: 8px; padding: 4px 4px 4px 12px; height: 50px; }
+  .pill--home .pill__logo, .pill--home .pill__link, .pill--home .pill__cta { font-size: 13px; letter-spacing: 0; }
+  .pill--home .pill__cta { padding: 7px 12px; }
+  .pill__group { gap: 8px; }
+  .pill__locale--home { font-size: 13px; padding-left: 6px; }
   .pill--case { width: 100%; max-width: calc(100vw - 32px); height: 50px; padding: 5px 14px; gap: 8px; overflow: hidden; }
   .pill--case a { min-width: 0; font-size: 13px; gap: 6px; white-space: nowrap; }
   .pill--case > a:first-child { flex-shrink: 1; }
@@ -748,10 +776,25 @@ a.work__media:hover img { transform: scale(1.03); }
   .chat-card__art img { max-height: 180px; }
   .about { padding: 104px 16px 0; }
   .about__top { grid-template-columns: 1fr; gap: 34px; }
-  .about__right { order: 2; }
-  .about__cv { align-self: flex-start; }
   .about__exp-row { grid-template-columns: 1fr; gap: 2px; }
   .about__exp-date { grid-column: 1; }
+  .about__section-label { margin-top: 54px; }
+  .about__exp { gap: 16px; margin-top: 18px; }
+  .about__socials { margin-top: 34px; gap: 12px; }
+  .about__socials a { font-size: 15px; padding: 7px 12px 7px 7px; gap: 8px; }
+  .about__social-icon { width: 28px; height: 28px; font-size: 17px; }
+  .about__media-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); grid-template-rows: repeat(2, clamp(115px, 35vw, 220px)) auto; gap: 8px; margin-top: 22px; }
+  .about__media-grid .about__photos { grid-column: 1; grid-row: 1; }
+  .about__media-grid .about__books { grid-column: 1; grid-row: 2; min-height: 0; }
+  .about__media-grid .about__portrait { grid-column: 2; grid-row: 1 / 3; border-radius: 10px; }
+  .about__media-grid .about__playlist { grid-column: 1 / -1; grid-row: 3; min-height: 0; aspect-ratio: 2 / 1; }
+  .about__card { border-radius: 10px; }
+  .about__card-title { top: 12px; left: 12px; }
+  .ring { top: 10px; right: 10px; }
   .photos-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .photos-overlay__inner { padding: 64px 16px 60px; }
+  .photos-overlay__inner, .books-overlay__inner { padding: 24px 16px; max-height: 92vh; }
+  .photos-viewer__stage { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 4px; }
+  .photos-viewer__arrow, .books-carousel__arrow { width: 28px; height: 28px; font-size: 22px; }
+  .books-carousel { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 4px; }
+  .book { flex-basis: 170px; }
 }

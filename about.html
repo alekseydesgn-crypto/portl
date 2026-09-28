@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" data-title-ru="Обо мне — Aleksey" data-title-en="About — Aleksey" data-description-ru="Алексей — веб-дизайнер и фронтенд-разработчик. От макета в Figma до работающего сайта." data-description-en="Aleksey — front-end developer and web designer. Figma to shipped code.">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Aleksey</title>
-  <meta name="description" content="Aleksey — front-end developer and web designer. Figma to shipped code." />
+  <title>Обо мне — Aleksey</title>
+  <meta name="description" content="Алексей — веб-дизайнер и фронтенд-разработчик. От макета в Figma до работающего сайта." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -19,9 +19,10 @@
     <nav class="pill pill--home">
       <a class="pill__logo" href="index.html">Aleksey</a>
       <div class="pill__group">
-        <a class="pill__link is-muted" href="index.html">Home</a>
-        <a class="pill__link is-active" href="about.html">About</a>
-        <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen">Chat</a>
+        <a class="pill__link is-muted" href="index.html" data-ru="Главная" data-en="Home">Главная</a>
+        <a class="pill__link is-active" href="about.html" data-ru="Обо мне" data-en="About">Обо мне</a>
+        <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen" data-ru="Чат" data-en="Chat">Чат</a>
+        <button class="pill__locale pill__locale--home" id="languageToggle" type="button" aria-label="Переключить на английский">EN</button>
       </div>
     </nav>
   </header>
@@ -29,65 +30,108 @@
   <main class="about">
     <div class="about__top">
       <div class="about__left">
-        <h1 class="about__h">Hey, I&rsquo;m Alexey</h1>
-        <p class="about__lead">Front-end developer and web designer, freelancing solo for two years: Figma to shipped code, no agency, no handoff. I care more about how it works in the real product than how it looks in a mockup.</p>
-        <p class="about__lead about__lead--sub">Outside of work: photographing nature and reading.</p>
+        <h1 class="about__h" data-ru="Привет, я Алексей" data-en="Hey, I’m Alexey">Привет, я Алексей</h1>
+        <p class="about__lead" data-ru="Веб-дизайнер и фронтенд-разработчик. Два года работаю самостоятельно: от макета в Figma до готового сайта. Мне важно, как дизайн работает в реальном продукте." data-en="Front-end developer and web designer, freelancing solo for two years: Figma to shipped code, no agency, no handoff. I care more about how it works in the real product than how it looks in a mockup.">Веб-дизайнер и фронтенд-разработчик. Два года работаю самостоятельно: от макета в Figma до готового сайта. Мне важно, как дизайн работает в реальном продукте.</p>
+        <p class="about__lead about__lead--sub" data-ru="Вне работы фотографирую природу и читаю." data-en="Outside of work: photographing nature and reading.">Вне работы фотографирую природу и читаю.</p>
 
+        <h2 class="about__section-label" data-ru="Опыт работы" data-en="Experience">Опыт работы</h2>
         <div class="about__exp">
           <div class="about__exp-row">
-            <div><span class="about__exp-name">Dentologica</span><span class="about__exp-role">Web and Graphic design</span></div>
-            <div class="about__exp-date">march – june 2026</div>
+            <div><span class="about__exp-name">Dentologica</span><span class="about__exp-role" data-ru="Веб- и графический дизайн" data-en="Web and Graphic design">Веб- и графический дизайн</span></div>
+            <div class="about__exp-date" data-ru="март — июнь 2026" data-en="March – June 2026">март — июнь 2026</div>
           </div>
           <div class="about__exp-row">
-            <div><span class="about__exp-name">FORCE Cyber Club</span><span class="about__exp-role">Web design</span></div>
-            <div class="about__exp-date">march – june 2026</div>
+            <div><span class="about__exp-name">FORCE Cyber Club</span><span class="about__exp-role" data-ru="Веб-дизайн" data-en="Web design">Веб-дизайн</span></div>
+            <div class="about__exp-date" data-ru="март — июнь 2026" data-en="March – June 2026">март — июнь 2026</div>
           </div>
           <div class="about__exp-row">
-            <div><span class="about__exp-name">Pushi Ushi</span><span class="about__exp-role">Web design</span></div>
-            <div class="about__exp-date">january – february 2026</div>
+            <div><span class="about__exp-name">Pushi Ushi</span><span class="about__exp-role" data-ru="Веб-дизайн" data-en="Web design">Веб-дизайн</span></div>
+            <div class="about__exp-date" data-ru="январь — февраль 2026" data-en="January – February 2026">январь — февраль 2026</div>
           </div>
           <div class="about__exp-row">
-            <div><span class="about__exp-name">DK Films</span><span class="about__exp-role">UX/UI design</span></div>
-            <div class="about__exp-date">october 2024 - december 2025</div>
+            <div><span class="about__exp-name">DK Films</span><span class="about__exp-role" data-ru="UX/UI-дизайн" data-en="UX/UI design">UX/UI-дизайн</span></div>
+            <div class="about__exp-date" data-ru="октябрь 2024 — декабрь 2025" data-en="October 2024 – December 2025">октябрь 2024 — декабрь 2025</div>
           </div>
         </div>
-
-        <button class="about__card about__photos" id="photosOpen" type="button" aria-label="Open photos">
-          <span class="about__card-title">Photos</span>
-          <span class="ring" aria-hidden="true"></span>
-          <img src="assets/img/photo-01.jpg" alt="Nature photography" />
-        </button>
       </div>
 
-      <div class="about__right">
-        <a class="about__cv" href="cv.pdf" download>Download CV <span class="ring ring--inline" aria-hidden="true"></span></a>
-        <img class="about__portrait" src="assets/img/about-me.jpg" alt="Aleksey" />
-        <a class="about__card about__playlist" href="https://open.spotify.com/playlist/3dpL3M60Auui4uR25bFsaI?si=f7cfb4b39f204bca" target="_blank" rel="noopener" aria-label="Open playlist">
-          <span class="about__card-title">Playlist</span>
-          <span class="ring" aria-hidden="true"></span>
-          <img src="assets/img/playlist.jpg" alt="Playlist" />
-        </a>
-      </div>
+    </div>
+
+    <div class="about__socials">
+      <a href="https://t.me/fiftyc50" target="_blank" rel="noopener"><span class="about__social-icon">↗</span><span data-ru="Телеграм" data-en="Telegram">Телеграм</span></a>
+      <a href="https://www.instagram.com/alekseygsgn/" target="_blank" rel="noopener"><span class="about__social-icon">◎</span><span data-ru="Инстаграм" data-en="Instagram">Инстаграм</span></a>
+    </div>
+
+    <div class="about__media-grid">
+      <button class="about__card about__photos" id="photosOpen" type="button" data-aria-ru="Открыть фотографии" data-aria-en="Open photos" aria-label="Открыть фотографии">
+        <span class="about__card-title" data-ru="Фото" data-en="Photos">Фото</span>
+        <span class="ring" aria-hidden="true"></span>
+        <img src="assets/img/photo-01.jpg" alt="" />
+      </button>
+      <button class="about__card about__books" id="booksOpen" type="button" data-aria-ru="Открыть книжную полку" data-aria-en="Open bookshelf" aria-label="Открыть книжную полку">
+        <span class="about__card-title" data-ru="Книжная полка" data-en="Bookshelf">Книжная полка</span>
+        <span class="ring" aria-hidden="true"></span>
+        <span class="about__books-preview" aria-hidden="true"><i>GATSBY</i><i>DESIGN</i><i>MOEM</i><i>HOPE</i></span>
+      </button>
+      <img class="about__portrait" src="assets/img/about-me.jpg" alt="Aleksey" />
+      <a class="about__card about__playlist" href="https://open.spotify.com/playlist/3dpL3M60Auui4uR25bFsaI?si=f7cfb4b39f204bca" target="_blank" rel="noopener" data-aria-ru="Открыть плейлист" data-aria-en="Open playlist" aria-label="Открыть плейлист">
+        <span class="about__card-title" data-ru="Плейлист" data-en="Playlist">Плейлист</span>
+        <span class="ring" aria-hidden="true"></span>
+        <img src="assets/img/playlist.jpg" alt="" />
+      </a>
     </div>
   </main>
 
-  <!-- Photos overlay · grid -->
   <div class="photos-overlay" id="photosOverlay" aria-hidden="true">
-    <div class="photos-overlay__inner">
+    <div class="photos-overlay__inner" role="dialog" aria-modal="true" aria-labelledby="photosTitle">
       <div class="photos-overlay__head">
-        <p class="photos-overlay__title">Photos</p>
-        <button class="photos-close" id="photosClose" type="button" aria-label="Close"></button>
+        <p class="photos-overlay__title" id="photosTitle" data-ru="Фотографии" data-en="Photos">Фотографии</p>
+        <button class="photos-close" id="photosClose" type="button" data-aria-ru="Закрыть" data-aria-en="Close" aria-label="Закрыть"></button>
       </div>
       <div class="photos-grid">
-        <img src="assets/img/photo-01.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-02.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-03.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-04.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-05.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-06.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-07.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-08.jpg" alt="" loading="lazy" />
-        <img src="assets/img/photo-09.jpg" alt="" loading="lazy" />
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 1"><img src="assets/img/photo-01.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 2"><img src="assets/img/photo-02.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 3"><img src="assets/img/photo-03.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 4"><img src="assets/img/photo-04.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 5"><img src="assets/img/photo-05.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 6"><img src="assets/img/photo-06.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 7"><img src="assets/img/photo-07.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 8"><img src="assets/img/photo-08.jpg" alt="" loading="lazy" /></button>
+        <button type="button" class="photos-grid__item" aria-label="Открыть фото 9"><img src="assets/img/photo-09.jpg" alt="" loading="lazy" /></button>
+      </div>
+      <div class="photos-viewer" id="photosViewer" hidden>
+        <button class="photos-viewer__back" id="photosBack" type="button" data-ru="Все фото" data-en="All photos">Все фото</button>
+        <div class="photos-viewer__stage">
+          <button class="photos-viewer__arrow" id="photosPrev" type="button" data-aria-ru="Предыдущее фото" data-aria-en="Previous photo" aria-label="Предыдущее фото">‹</button>
+          <img id="photosCurrent" src="assets/img/photo-01.jpg" alt="" />
+          <button class="photos-viewer__arrow" id="photosNext" type="button" data-aria-ru="Следующее фото" data-aria-en="Next photo" aria-label="Следующее фото">›</button>
+        </div>
+        <p class="photos-viewer__count" id="photosCount">1 / 9</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="books-overlay" id="booksOverlay" aria-hidden="true">
+    <div class="books-overlay__inner" role="dialog" aria-modal="true" aria-labelledby="booksTitle">
+      <div class="photos-overlay__head">
+        <div>
+          <p class="photos-overlay__title" id="booksTitle" data-ru="Книжная полка" data-en="Bookshelf">Книжная полка</p>
+          <p class="books-overlay__subtitle" data-ru="Художественная литература и книги о дизайне" data-en="Fiction and design books">Художественная литература и книги о дизайне</p>
+        </div>
+        <button class="photos-close" id="booksClose" type="button" data-aria-ru="Закрыть" data-aria-en="Close" aria-label="Закрыть"></button>
+      </div>
+      <div class="books-carousel">
+        <button class="books-carousel__arrow" id="booksPrev" type="button" data-aria-ru="Предыдущие книги" data-aria-en="Previous books" aria-label="Предыдущие книги">‹</button>
+        <div class="books-track" id="booksTrack">
+          <article class="book book--gatsby"><div class="book__cover"><span>F. Scott Fitzgerald</span><strong>THE GREAT<br />GATSBY</strong><small>1925</small></div><h3 data-ru="Великий Гэтсби" data-en="The Great Gatsby">Великий Гэтсби</h3><p data-ru="Фрэнсис Скотт Фицджеральд" data-en="F. Scott Fitzgerald">Фрэнсис Скотт Фицджеральд</p></article>
+          <article class="book book--expectations"><div class="book__cover"><span>Charles Dickens</span><strong>GREAT<br />EXPECTATIONS</strong><small>1861</small></div><h3 data-ru="Большие надежды" data-en="Great Expectations">Большие надежды</h3><p data-ru="Чарльз Диккенс" data-en="Charles Dickens">Чарльз Диккенс</p></article>
+          <article class="book book--krug"><div class="book__cover"><span>Steve Krug</span><strong>DON'T<br />MAKE ME<br />THINK</strong><small>USABILITY</small></div><h3 data-ru="Не заставляйте меня думать" data-en="Don't Make Me Think">Не заставляйте меня думать</h3><p data-ru="Стив Круг · веб-дизайн" data-en="Steve Krug · web design">Стив Круг · веб-дизайн</p></article>
+          <article class="book book--ui"><div class="book__cover"><span>Adam Wathan · Steve Schoger</span><strong>REFACTORING<br />UI</strong><small>DESIGN</small></div><h3>Refactoring UI</h3><p data-ru="Адам Уотан, Стив Шогер · дизайн интерфейсов" data-en="Adam Wathan, Steve Schoger · interface design">Адам Уотан, Стив Шогер · дизайн интерфейсов</p></article>
+          <article class="book book--bets"><div class="book__cover"><span>Жан-Поль Сартр</span><strong>СТАВОК<br />БОЛЬШЕ<br />НЕТ</strong><small>РОМАН</small></div><h3 data-ru="Ставок больше нет" data-en="The Chips Are Down">Ставок больше нет</h3><p data-ru="Жан-Поль Сартр" data-en="Jean-Paul Sartre">Жан-Поль Сартр</p></article>
+          <article class="book book--cafe"><div class="book__cover"><span>John Strelecky</span><strong>THE CAFE<br />ON THE EDGE<br />OF THE WORLD</strong><small>FICTION</small></div><h3 data-ru="Кафе на краю света" data-en="The Cafe on the Edge of the World">Кафе на краю света</h3><p data-ru="Джон Стрелеки" data-en="John Strelecky">Джон Стрелеки</p></article>
+          <article class="book book--villa"><div class="book__cover"><span>W. Somerset Maugham</span><strong>UP AT<br />THE VILLA</strong><small>1941</small></div><h3 data-ru="На вилле" data-en="Up at the Villa">На вилле</h3><p data-ru="Сомерсет Моэм" data-en="W. Somerset Maugham">Сомерсет Моэм</p></article>
+        </div>
+        <button class="books-carousel__arrow" id="booksNext" type="button" data-aria-ru="Следующие книги" data-aria-en="Next books" aria-label="Следующие книги">›</button>
       </div>
     </div>
   </div>
@@ -95,7 +139,7 @@
   <footer class="footer">
     <div class="footer__grid">
       <div class="footer__left">
-        <p class="footer__lead">Let&rsquo;s make something</p>
+        <p class="footer__lead" data-ru="Давайте сделаем что-нибудь" data-en="Let’s make something">Давайте сделаем что-нибудь</p>
         <ul class="footer__cities">
           <li><span class="dot"></span> Belgrade</li>
           <li><span class="dot"></span> Moscow</li>
@@ -104,17 +148,17 @@
       </div>
       <div class="footer__cols">
         <div class="footer__col">
-          <h4>Navigation</h4>
-          <p><a href="index.html">Home</a></p>
-          <p><a href="about.html">About</a></p>
+          <h4 data-ru="Навигация" data-en="Navigation">Навигация</h4>
+          <p><a href="index.html" data-ru="Главная" data-en="Home">Главная</a></p>
+          <p><a href="about.html" data-ru="Обо мне" data-en="About">Обо мне</a></p>
         </div>
         <div class="footer__col">
-          <h4>Contact</h4>
+          <h4 data-ru="Контакты" data-en="Contact">Контакты</h4>
           <p><a href="mailto:alekseydesgn@gmail.com">alekseydesgn@gmail.com</a></p>
           <p><a href="https://t.me/fiftyc50" target="_blank" rel="noopener">Telegram</a></p>
         </div>
         <div class="footer__col">
-          <h4>Social</h4>
+          <h4 data-ru="Соцсети" data-en="Social">Соцсети</h4>
           <p><a href="https://www.instagram.com/alekseygsgn/" target="_blank" rel="noopener">Instagram</a></p>
           <p><a href="https://www.linkedin.com/in/aleksey-valeev-159538419/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>

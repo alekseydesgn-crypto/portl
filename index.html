@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" data-title-ru="Алексей — веб-дизайнер" data-title-en="Aleksey — Web designer" data-description-ru="Алексей — веб-дизайнер и фронтенд-разработчик. Избранные проекты и кейсы." data-description-en="Aleksey — web designer and front-end developer. Selected projects and case studies.">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aleksey — Web designer</title>
-  <meta name="description" content="Aleksey — web designer. I do it matters to us. UX/UI design, branding and web development." />
+  <title>Алексей — веб-дизайнер</title>
+  <meta name="description" content="Алексей — веб-дизайнер и фронтенд-разработчик. Избранные проекты и кейсы." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -20,9 +20,10 @@
     <nav class="pill pill--home">
       <a class="pill__logo" href="index.html">Aleksey</a>
       <div class="pill__group">
-        <a class="pill__link is-active" href="index.html">Home</a>
-        <a class="pill__link is-muted" href="about.html">About</a>
-        <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen">Chat</a>
+        <a class="pill__link is-active" href="index.html" data-ru="Главная" data-en="Home">Главная</a>
+        <a class="pill__link is-muted" href="about.html" data-ru="Обо мне" data-en="About">Обо мне</a>
+        <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen" data-ru="Чат" data-en="Chat">Чат</a>
+        <button class="pill__locale pill__locale--home" id="languageToggle" type="button" aria-label="Переключить на английский">EN</button>
       </div>
     </nav>
   </header>
@@ -32,8 +33,8 @@
     <div class="hero__panel">
       <img class="hero__bg" src="assets/img/hero-grain.jpg" alt="" aria-hidden="true" />
       <div class="hero__copy">
-        <h1 class="hero__title">Web designer</h1>
-        <p class="hero__sub">I do it matter to me</p>
+        <h1 class="hero__title" data-ru="Веб-дизайнер" data-en="Web designer">Веб-дизайнер</h1>
+        <p class="hero__sub" data-ru="Делаю то, что важно" data-en="I make what matters">Делаю то, что важно</p>
       </div>
     </div>
   </section>
@@ -42,10 +43,10 @@
   <main class="works" id="works">
     <article class="work">
       <div class="work__body">
-        <p class="work__tag">Case study App, e-com, iOS</p>
+        <p class="work__tag" data-ru="Кейс · приложение, e-commerce, iOS" data-en="Case study App, e-com, iOS">Кейс · приложение, e-commerce, iOS</p>
         <h2 class="work__title">eMarket</h2>
-        <p class="work__desc">Mobile app concept for tracking deliveries across marketplaces</p>
-        <a class="btn" href="emarket.html">view project</a>
+        <p class="work__desc" data-ru="Концепция приложения для отслеживания доставок с разных маркетплейсов" data-en="Mobile app concept for tracking deliveries across marketplaces">Концепция приложения для отслеживания доставок с разных маркетплейсов</p>
+        <a class="btn" href="emarket.html" data-ru="Смотреть проект" data-en="view project">Смотреть проект</a>
       </div>
       <a class="work__media" href="emarket.html">
         <img src="assets/img/emarket-thumb.jpg" alt="eMarket app concept" />
@@ -54,10 +55,10 @@
 
     <article class="work">
       <div class="work__body">
-        <p class="work__tag">Web, Product, Franchise</p>
+        <p class="work__tag" data-ru="Сайт, продукт, франшиза" data-en="Web, Product, Franchise">Сайт, продукт, франшиза</p>
         <h2 class="work__title">Force Drop Zone</h2>
-        <p class="work__desc">A gaming club landing page extended into a franchise sales system</p>
-        <a class="btn" href="force-drop-zone.html">view project</a>
+        <p class="work__desc" data-ru="Сайт игрового клуба и раздел для продажи франшизы" data-en="A gaming club landing page extended into a franchise sales system">Сайт игрового клуба и раздел для продажи франшизы</p>
+        <a class="btn" href="force-drop-zone.html" data-ru="Смотреть проект" data-en="view project">Смотреть проект</a>
       </div>
       <a class="work__media" href="force-drop-zone.html">
         <img src="assets/img/force-thumb.jpg" alt="Force Drop Zone landing" />
@@ -67,15 +68,15 @@
     <!-- Dentalogica — no page yet: hover shows a “soon” badge -->
     <article class="work work--soon">
       <div class="work__body">
-        <p class="work__tag">Healthcare</p>
+        <p class="work__tag" data-ru="Медицина" data-en="Healthcare">Медицина</p>
         <h2 class="work__title">Dentalogica</h2>
-        <p class="work__desc">Branding and website for a premium dental clinic</p>
-        <span class="btn">view project</span>
+        <p class="work__desc" data-ru="Брендинг и сайт для стоматологической клиники" data-en="Branding and website for a premium dental clinic">Брендинг и сайт для стоматологической клиники</p>
+        <span class="btn" data-ru="Смотреть проект" data-en="view project">Смотреть проект</span>
       </div>
       <div class="work__media">
         <img src="assets/img/dental-thumb.jpg" alt="Dentalogica clinic branding" />
       </div>
-      <span class="soon-badge" aria-hidden="true">coming soon</span>
+      <span class="soon-badge" aria-hidden="true" data-ru="скоро" data-en="coming soon">скоро</span>
     </article>
   </main>
 
@@ -83,7 +84,7 @@
   <footer class="footer">
     <div class="footer__grid">
       <div class="footer__left">
-        <p class="footer__lead">Let&rsquo;s make something</p>
+        <p class="footer__lead" data-ru="Давайте сделаем что-нибудь" data-en="Let’s make something">Давайте сделаем что-нибудь</p>
         <ul class="footer__cities">
           <li><span class="dot"></span> Belgrade</li>
           <li><span class="dot"></span> Moscow</li>
@@ -92,17 +93,17 @@
       </div>
       <div class="footer__cols">
         <div class="footer__col">
-          <h4>Navigation</h4>
-          <p><a href="index.html">Home</a></p>
-          <p><a href="about.html">About</a></p>
+          <h4 data-ru="Навигация" data-en="Navigation">Навигация</h4>
+          <p><a href="index.html" data-ru="Главная" data-en="Home">Главная</a></p>
+          <p><a href="about.html" data-ru="Обо мне" data-en="About">Обо мне</a></p>
         </div>
         <div class="footer__col">
-          <h4>Contact</h4>
+          <h4 data-ru="Контакты" data-en="Contact">Контакты</h4>
           <p><a href="mailto:alekseydesgn@gmail.com">alekseydesgn@gmail.com</a></p>
           <p><a href="https://t.me/fiftyc50" target="_blank" rel="noopener">Telegram</a></p>
         </div>
         <div class="footer__col">
-          <h4>Social</h4>
+          <h4 data-ru="Соцсети" data-en="Social">Соцсети</h4>
           <p><a href="https://www.instagram.com/alekseygsgn/" target="_blank" rel="noopener">Instagram</a></p>
           <p><a href="https://www.linkedin.com/in/aleksey-valeev-159538419/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
@@ -112,18 +113,18 @@
 
   <!-- Chat overlay · "Say something" (from buttns.pdf) -->
   <div class="chat-overlay" id="chatOverlay" aria-hidden="true">
-    <div class="chat-card" role="dialog" aria-modal="true" aria-label="Say something">
+    <div class="chat-card" role="dialog" aria-modal="true" data-aria-ru="Написать сообщение" data-aria-en="Say something" aria-label="Написать сообщение">
       <button class="chat-close" id="chatClose" type="button" aria-label="Close"></button>
       <div class="chat-card__art">
         <img src="assets/img/chat-angel.png" alt="" aria-hidden="true" />
       </div>
       <div class="chat-card__form">
-        <h3 class="chat-card__title">Say something</h3>
+        <h3 class="chat-card__title" data-ru="Напиши мне" data-en="Say something">Напиши мне</h3>
         <form id="chatForm" novalidate>
           <input class="chat-field" type="email" name="email" placeholder="E-mail" autocomplete="email" required />
-          <input class="chat-field" type="text" name="name" placeholder="Name" autocomplete="name" required />
-          <textarea class="chat-field chat-field--area" name="note" placeholder="Note" required></textarea>
-          <button class="chat-send" type="submit">Send</button>
+          <input class="chat-field" type="text" name="name" placeholder="Имя" data-placeholder-ru="Имя" data-placeholder-en="Name" autocomplete="name" required />
+          <textarea class="chat-field chat-field--area" name="note" placeholder="Сообщение" data-placeholder-ru="Сообщение" data-placeholder-en="Note" required></textarea>
+          <button class="chat-send" type="submit" data-ru="Отправить" data-en="Send">Отправить</button>
           <p class="chat-status" id="chatStatus" hidden></p>
         </form>
       </div>

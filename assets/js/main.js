@@ -59,6 +59,9 @@
       document.querySelectorAll('[data-aria-ru][data-aria-en]').forEach(function (node) {
         node.setAttribute('aria-label', node.getAttribute('data-aria-' + language));
       });
+      document.querySelectorAll('.photos-grid__item').forEach(function (node, index) {
+        node.setAttribute('aria-label', (language === 'ru' ? 'Открыть фото ' : 'Open photo ') + (index + 1));
+      });
 
       try { localStorage.setItem('portfolio-language', language); } catch (e) { /* private mode */ }
       document.dispatchEvent(new CustomEvent('portfolio:language', { detail: { language: language } }));

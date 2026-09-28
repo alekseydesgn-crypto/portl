@@ -11,20 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&family=EB+Garamond:ital@1&family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20260929-1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260929-2" />
 </head>
 <body>
 
   <!-- Header pill — spec: 641×75, top 98, padding 5/10/5/40, r90, fill 828282@60%, blur 10 -->
   <header class="site-header">
-    <nav class="pill pill--home">
+    <div class="site-header__left"><nav class="pill pill--home">
       <a class="pill__logo" href="index.html">Aleksey</a>
       <div class="pill__group">
         <a class="pill__link is-active" href="index.html" data-ru="Главная" data-en="Home">Главная</a>
         <a class="pill__link is-muted" href="about.html" data-ru="Обо мне" data-en="About">Обо мне</a>
-        <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen" data-ru="Чат" data-en="Chat">Чат</a>
       </div>
     </nav>
+    <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen" data-ru="Чат" data-en="Chat">Чат</a></div>
     <button class="locale-float locale-float--dark" id="languageToggle" type="button" aria-label="Переключить на английский"><span class="locale-globe" aria-hidden="true">◎</span><span class="locale-code">EN</span></button>
   </header>
 
@@ -131,6 +131,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=20260929-1"></script>
+  <script src="assets/js/main.js?v=20260929-2"></script>
 </body>
 </html>

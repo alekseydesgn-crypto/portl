@@ -174,11 +174,13 @@
       if (thumbButtons[currentPhoto]) thumbButtons[currentPhoto].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       photosViewer.hidden = false;
       photosOverlay.querySelector('.photos-overlay__inner').classList.add('is-viewing');
+      document.getElementById('photosBack').hidden = false;
       document.getElementById('photosBack').focus();
     };
     var showPhotoGrid = function () {
       photosViewer.hidden = true;
       photosOverlay.querySelector('.photos-overlay__inner').classList.remove('is-viewing');
+      document.getElementById('photosBack').hidden = true;
       photoItems[currentPhoto].focus();
     };
     var openPhotos = function () {
@@ -193,6 +195,7 @@
       document.body.style.overflow = '';
       photosViewer.hidden = true;
       photosOverlay.querySelector('.photos-overlay__inner').classList.remove('is-viewing');
+      document.getElementById('photosBack').hidden = true;
       photosOpen.focus();
     };
     photosOpen.addEventListener('click', openPhotos);

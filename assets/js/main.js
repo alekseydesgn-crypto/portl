@@ -242,7 +242,49 @@
   var booksOpen = document.getElementById('booksOpen');
   if (booksOverlay && booksOpen) {
     var booksTrack = document.getElementById('booksTrack');
+    var books = Array.from(booksTrack.querySelectorAll('.book'));
+    var bookVelocity = 0;
+    var bookFrame = 0;
+    var bookTarget = function (book) {
+      return booksTrack.scrollLeft + book.getBoundingClientRect().left - booksTrack.getBoundingClientRect().left;
+    };
+    var nearestBook = function () {
+      return books.reduce(function (best, book) {
+        return Math.abs(bookTarget(book) - booksTrack.scrollLeft) < Math.abs(bookTarget(best) - booksTrack.scrollLeft) ? book : best;
+      }, books[0]);
+    };
+    var settleBooks = function () {
+      booksTrack.classList.remove('is-gliding');
+      if (books.length) booksTrack.scrollTo({ left: bookTarget(nearestBook()), behavior: 'smooth' });
+    };
+    var glideBooks = function () {
+      booksTrack.scrollLeft += bookVelocity;
+      bookVelocity *= .84;
+      if (Math.abs(bookVelocity) > .35) bookFrame = requestAnimationFrame(glideBooks);
+      else { bookFrame = 0; settleBooks(); }
+    };
+    booksTrack.addEventListener('wheel', function (e) {
+      if (booksTrack.scrollWidth <= booksTrack.clientWidth) return;
+      e.preventDefault();
+      booksTrack.classList.add('is-gliding');
+      bookVelocity = Math.max(-24, Math.min(24, bookVelocity + (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * .2));
+      if (!bookFrame) bookFrame = requestAnimationFrame(glideBooks);
+    }, { passive: false });
+    var stepBooks = function (direction) {
+      if (!books.length) return;
+      cancelAnimationFrame(bookFrame);
+      bookFrame = 0;
+      bookVelocity = 0;
+      booksTrack.classList.remove('is-gliding');
+      var current = books.indexOf(nearestBook());
+      var next = books[Math.max(0, Math.min(books.length - 1, current + direction))];
+      booksTrack.scrollTo({ left: bookTarget(next), behavior: 'smooth' });
+    };
     var closeBooks = function () {
+      cancelAnimationFrame(bookFrame);
+      bookFrame = 0;
+      bookVelocity = 0;
+      booksTrack.classList.remove('is-gliding');
       booksOverlay.classList.remove('is-open');
       booksOverlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
@@ -256,8 +298,8 @@
     });
     document.getElementById('booksClose').addEventListener('click', closeBooks);
     booksOverlay.addEventListener('click', function (e) { if (e.target === booksOverlay) closeBooks(); });
-    document.getElementById('booksPrev').addEventListener('click', function () { booksTrack.scrollBy({ left: -booksTrack.clientWidth * .75, behavior: 'smooth' }); });
-    document.getElementById('booksNext').addEventListener('click', function () { booksTrack.scrollBy({ left: booksTrack.clientWidth * .75, behavior: 'smooth' }); });
+    document.getElementById('booksPrev').addEventListener('click', function () { stepBooks(-1); });
+    document.getElementById('booksNext').addEventListener('click', function () { stepBooks(1); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && booksOverlay.classList.contains('is-open')) closeBooks(); });
   }
 

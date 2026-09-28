@@ -166,7 +166,7 @@ img { display: block; max-width: 100%; }
   font: 20px var(--narrow); letter-spacing: 1px; cursor: pointer; transition: opacity .2s, background .3s, color .3s;
 }
 .locale-float:hover { opacity: .65; }
-.locale-float--dark { background: rgba(54,38,38,.62); color: #fff; border-color: rgba(255,255,255,.35); }
+.locale-float--dark { background: rgba(105,105,105,.68); color: #fff; border-color: rgba(255,255,255,.35); }
 .locale-globe { position: relative; width: 24px; height: 24px; border: 1.5px solid currentColor; border-radius: 50%; font-size: 0; }
 .locale-globe::before { content: ""; position: absolute; left: 6px; right: 6px; top: -1.5px; bottom: -1.5px; border: 1.5px solid currentColor; border-top: 0; border-bottom: 0; border-radius: 50%; }
 .locale-globe::after { content: ""; position: absolute; left: 2px; right: 2px; top: 50%; border-top: 1.5px solid currentColor; }
@@ -750,9 +750,9 @@ a.work__media:hover img { transform: scale(1.03); }
 .books-overlay { position: fixed; inset: 0; z-index: 410; display: grid; place-items: center; padding: 24px; background: #0009; backdrop-filter: blur(8px); visibility: hidden; opacity: 0; pointer-events: none; transition: opacity .25s, visibility .25s; }
 .books-overlay.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
 .books-overlay__inner { width: min(1100px, 96vw); max-height: 90vh; overflow: auto; border-radius: 24px; background: #fff; padding: 34px; }
-.books-overlay__subtitle { margin: 6px 0 0; font-size: 16px; color: #777; }
 .books-carousel { display: grid; grid-template-columns: 42px minmax(0, 1fr) 42px; gap: 12px; align-items: center; }
-.books-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 6px 2px 20px; }
+.books-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 2px; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 6px 2px 20px; }
+.books-track.is-gliding { scroll-snap-type: none; }
 .books-track::-webkit-scrollbar { display: none; }
 .book { flex: 0 0 clamp(160px, 19vw, 220px); scroll-snap-align: start; }
 .book__cover { aspect-ratio: 2 / 3; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 16px; box-shadow: 7px 10px 15px #0002; color: #fff; background: #19384e; }

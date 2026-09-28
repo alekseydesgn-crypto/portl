@@ -45,7 +45,9 @@
       });
 
       document.documentElement.lang = language;
-      languageToggle.textContent = language === 'ru' ? 'EN' : 'RU';
+      var localeCode = languageToggle.querySelector('.locale-code');
+      if (localeCode) localeCode.textContent = language === 'ru' ? 'EN' : 'RU';
+      else languageToggle.textContent = language === 'ru' ? 'EN' : 'RU';
       languageToggle.setAttribute('aria-label', language === 'ru' ? 'Переключить на английский' : 'Switch to Russian');
       var localizedTitle = document.documentElement.getAttribute('data-title-' + language);
       if (localizedTitle) document.title = localizedTitle;
@@ -147,12 +149,29 @@
     var photosCurrent = document.getElementById('photosCurrent');
     var photosCount = document.getElementById('photosCount');
     var photoItems = Array.from(document.querySelectorAll('.photos-grid__item'));
+    var photosThumbs = document.getElementById('photosThumbs');
+    var photoCursor = document.getElementById('photoCursor');
+    var thumbButtons = [];
     var currentPhoto = 0;
+    if (photosThumbs) {
+      photoItems.forEach(function (item, index) {
+        var thumb = document.createElement('button');
+        thumb.type = 'button';
+        thumb.className = 'photos-viewer__thumb';
+        thumb.setAttribute('aria-label', (document.documentElement.lang === 'ru' ? 'Показать фото ' : 'Show photo ') + (index + 1));
+        thumb.innerHTML = '<img src="' + item.querySelector('img').getAttribute('src') + '" alt="">';
+        thumb.addEventListener('click', function () { showPhoto(index); });
+        photosThumbs.appendChild(thumb);
+        thumbButtons.push(thumb);
+      });
+    }
     var showPhoto = function (index) {
       currentPhoto = (index + photoItems.length) % photoItems.length;
       photosCurrent.src = photoItems[currentPhoto].querySelector('img').src;
       photosCurrent.alt = (document.documentElement.lang === 'ru' ? 'Фотография ' : 'Photo ') + (currentPhoto + 1);
       photosCount.textContent = (currentPhoto + 1) + ' / ' + photoItems.length;
+      thumbButtons.forEach(function (thumb, thumbIndex) { thumb.classList.toggle('is-active', thumbIndex === currentPhoto); });
+      if (thumbButtons[currentPhoto]) thumbButtons[currentPhoto].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       photosViewer.hidden = false;
       photosOverlay.querySelector('.photos-overlay__inner').classList.add('is-viewing');
       document.getElementById('photosBack').focus();
@@ -183,6 +202,16 @@
     document.getElementById('photosPrev').addEventListener('click', function () { showPhoto(currentPhoto - 1); });
     document.getElementById('photosNext').addEventListener('click', function () { showPhoto(currentPhoto + 1); });
     photosOverlay.addEventListener('click', function (e) { if (e.target === photosOverlay) closePhotos(); });
+    if (photoCursor && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      photoItems.forEach(function (item) {
+        item.addEventListener('mouseenter', function () { photoCursor.classList.add('is-visible'); });
+        item.addEventListener('mouseleave', function () { photoCursor.classList.remove('is-visible'); });
+        item.addEventListener('mousemove', function (e) {
+          photoCursor.style.left = e.clientX + 'px';
+          photoCursor.style.top = e.clientY + 'px';
+        });
+      });
+    }
     document.addEventListener('keydown', function (e) {
       if (!photosOverlay.classList.contains('is-open')) return;
       if (e.key === 'Escape') { if (!photosViewer.hidden) showPhotoGrid(); else closePhotos(); }

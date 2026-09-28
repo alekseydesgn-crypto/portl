@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&family=EB+Garamond:ital@1&family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20260928-2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260929-1" />
 </head>
 <body>
 
@@ -22,9 +22,9 @@
         <a class="pill__link is-muted" href="index.html" data-ru="Главная" data-en="Home">Главная</a>
         <a class="pill__link is-active" href="about.html" data-ru="Обо мне" data-en="About">Обо мне</a>
         <a class="pill__cta" href="mailto:alekseydesgn@gmail.com" id="chatOpen" data-ru="Чат" data-en="Chat">Чат</a>
-        <button class="pill__locale pill__locale--home" id="languageToggle" type="button" aria-label="Переключить на английский">EN</button>
       </div>
     </nav>
+    <button class="locale-float" id="languageToggle" type="button" aria-label="Переключить на английский"><span class="locale-globe" aria-hidden="true">◎</span><span class="locale-code">EN</span></button>
   </header>
 
   <main class="about">
@@ -71,7 +71,7 @@
       <button class="about__card about__books" id="booksOpen" type="button" data-aria-ru="Открыть книжную полку" data-aria-en="Open bookshelf" aria-label="Открыть книжную полку">
         <span class="about__card-title" data-ru="Книжная полка" data-en="Bookshelf">Книжная полка</span>
         <span class="ring" aria-hidden="true"></span>
-        <span class="about__books-preview" aria-hidden="true"><i>GATSBY</i><i>DESIGN</i><i>MOEM</i><i>HOPE</i></span>
+        <span class="about__books-preview" aria-hidden="true"><i>GATSBY</i><i>DESIGN</i><i>MOEM</i><i>HOPE</i><i>CAFE</i><i>UI</i></span>
       </button>
       <img class="about__portrait" src="assets/img/about-me.jpg" alt="Aleksey" />
       <a class="about__card about__playlist" href="https://open.spotify.com/playlist/3dpL3M60Auui4uR25bFsaI?si=f7cfb4b39f204bca" target="_blank" rel="noopener" data-aria-ru="Открыть плейлист" data-aria-en="Open playlist" aria-label="Открыть плейлист">
@@ -100,13 +100,13 @@
         <button type="button" class="photos-grid__item" aria-label="Открыть фото 9"><img src="assets/img/photo-09.jpg" alt="" loading="lazy" /></button>
       </div>
       <div class="photos-viewer" id="photosViewer" hidden>
-        <button class="photos-viewer__back" id="photosBack" type="button" data-ru="Все фото" data-en="All photos">Все фото</button>
         <div class="photos-viewer__stage">
           <button class="photos-viewer__arrow" id="photosPrev" type="button" data-aria-ru="Предыдущее фото" data-aria-en="Previous photo" aria-label="Предыдущее фото">‹</button>
           <img id="photosCurrent" src="assets/img/photo-01.jpg" alt="" />
           <button class="photos-viewer__arrow" id="photosNext" type="button" data-aria-ru="Следующее фото" data-aria-en="Next photo" aria-label="Следующее фото">›</button>
         </div>
-        <p class="photos-viewer__count" id="photosCount">1 / 9</p>
+        <div class="photos-viewer__meta"><button class="photos-viewer__back" id="photosBack" type="button" data-ru="Все фото" data-en="All photos">Все фото</button><p class="photos-viewer__count" id="photosCount">1 / 9</p></div>
+        <div class="photos-viewer__thumbs" id="photosThumbs" aria-label="Photo thumbnails"></div>
       </div>
     </div>
   </div>
@@ -166,6 +166,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260928-3"></script>
+  <div class="photo-cursor" id="photoCursor" aria-hidden="true"><span></span></div>
+  <script src="assets/js/main.js?v=20260929-1"></script>
 </body>
 </html>

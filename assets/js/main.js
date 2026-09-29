@@ -50,7 +50,7 @@
           var walker = document.createTreeWalker(caseContent, NodeFilter.SHOW_TEXT);
           var textNode;
           while ((textNode = walker.nextNode())) {
-            textNode.nodeValue = textNode.nodeValue.replace(/(^|[\s(«„])(из-за|из-под|в|во|на|с|со|к|ко|о|об|обо|от|до|из|по|у|для|без|при|под|над|между|перед|через) ([^\s])/giu, '$1$2\u00a0$3');
+            textNode.nodeValue = textNode.nodeValue.replace(/(^|[\s(«„])(из-за|из-под|в|во|на|с|со|к|ко|о|об|обо|от|до|из|по|у|за|для|без|при|под|над|между|перед|через|после|около|вместо) ([^\s])/giu, '$1$2\u00a0$3');
           }
         }
       }

@@ -123,9 +123,9 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var email = form.email.value.trim();
-      var name = form.name.value.trim();
-      var note = form.note.value.trim();
+      var email = form.elements.namedItem('email').value.trim();
+      var name = form.elements.namedItem('name').value.trim();
+      var note = form.elements.namedItem('note').value.trim();
       status.hidden = false;
       var isRussian = document.documentElement.lang === 'ru';
       if (!email || !name || !note) { status.textContent = isRussian ? 'Заполни все поля.' : 'Please fill in all fields.'; return; }

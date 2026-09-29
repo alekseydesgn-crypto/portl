@@ -163,7 +163,26 @@
     </div>
   </footer>
 
+  <div class="chat-overlay" id="chatOverlay" aria-hidden="true">
+    <div class="chat-card" role="dialog" aria-modal="true" data-aria-ru="Написать сообщение" data-aria-en="Say something" aria-label="Написать сообщение">
+      <button class="chat-close" id="chatClose" type="button" data-aria-ru="Закрыть" data-aria-en="Close" aria-label="Закрыть"></button>
+      <div class="chat-card__art">
+        <img src="assets/img/chat-angel.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="chat-card__form">
+        <h3 class="chat-card__title" data-ru="Напиши мне" data-en="Say something">Напиши мне</h3>
+        <form id="chatForm" novalidate>
+          <input class="chat-field" type="email" name="email" placeholder="E-mail" autocomplete="email" required />
+          <input class="chat-field" type="text" name="name" placeholder="Имя" data-placeholder-ru="Имя" data-placeholder-en="Name" autocomplete="name" required />
+          <textarea class="chat-field chat-field--area" name="note" placeholder="Сообщение" data-placeholder-ru="Сообщение" data-placeholder-en="Note" required></textarea>
+          <button class="chat-send" type="submit" data-ru="Отправить" data-en="Send">Отправить</button>
+          <p class="chat-status" id="chatStatus" hidden></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="photo-cursor" id="photoCursor" aria-hidden="true"></div>
-  <script src="assets/js/main.js?v=20260929-9"></script>
+  <script src="assets/js/main.js?v=20260929-10"></script>
 </body>
 </html>

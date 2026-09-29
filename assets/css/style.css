@@ -373,7 +373,10 @@ a.work__media:hover img { transform: scale(1.03); }
   font-size: clamp(13px, 1.5625vw, 20px);
   letter-spacing: .5px;
   margin: 0;
+  text-wrap: pretty;
 }
+.cs__h, .cs__franchise-title, .cs__franchise-point h3 { text-wrap: balance; }
+.cs__franchise-point > p:last-child { text-wrap: pretty; }
 .cs__img {
   width: 49.5%;
   border-radius: min(1.5625vw, 20px);

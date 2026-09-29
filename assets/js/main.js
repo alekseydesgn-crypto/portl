@@ -33,6 +33,18 @@
   /* --- Site language switch -------------------------------- */
   var languageToggle = document.getElementById('languageToggle');
   var translatedNodes = document.querySelectorAll('[data-ru][data-en]');
+  var bindShortWords = function () {
+    var russian = /(^|[\s(«„“"'])(из-за|из-под|в|во|на|с|со|к|ко|о|об|обо|от|до|из|по|у|за|для|без|при|под|над|между|перед|через|после|около|вместо|и|а|но|не) ([^\s])/giu;
+    var english = /(^|[\s(“"'])(a|an|the|to|of|in|on|at|by|for|from|with|into|over|under|after|before|about|across|and|or) ([^\s])/giu;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    var textNode;
+    while ((textNode = walker.nextNode())) {
+      if (textNode.parentElement && textNode.parentElement.closest('script, style, noscript, textarea, code, pre, svg')) continue;
+      var original = textNode.nodeValue;
+      var fixed = original.replace(russian, '$1$2\u00a0$3').replace(english, '$1$2\u00a0$3');
+      if (fixed !== original) textNode.nodeValue = fixed;
+    }
+  };
   if (languageToggle) {
     var setLanguage = function (language) {
       translatedNodes.forEach(function (node) {
@@ -44,16 +56,7 @@
         }
       });
 
-      if (language === 'ru') {
-        var caseContent = document.querySelector('main.cs');
-        if (caseContent) {
-          var walker = document.createTreeWalker(caseContent, NodeFilter.SHOW_TEXT);
-          var textNode;
-          while ((textNode = walker.nextNode())) {
-            textNode.nodeValue = textNode.nodeValue.replace(/(^|[\s(«„])(из-за|из-под|в|во|на|с|со|к|ко|о|об|обо|от|до|из|по|у|за|для|без|при|под|над|между|перед|через|после|около|вместо) ([^\s])/giu, '$1$2\u00a0$3');
-          }
-        }
-      }
+      bindShortWords();
 
       document.documentElement.lang = language;
       var localeCode = languageToggle.querySelector('.locale-code');
@@ -86,6 +89,7 @@
     languageToggle.addEventListener('click', function () {
       setLanguage(document.documentElement.lang === 'ru' ? 'en' : 'ru');
     });
+    new MutationObserver(bindShortWords).observe(document.body, { childList: true, characterData: true, subtree: true });
   }
 
   /* --- Chat overlay → Telegram ----------------------------- */

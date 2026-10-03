@@ -739,6 +739,7 @@ a.work__media:hover img { transform: scale(1.03); }
 .photos-viewer__image img { display: block; width: auto; height: auto; max-width: 100%; max-height: min(48vh, 520px); border-radius: 0; object-fit: contain; background: transparent; }
 .photos-viewer__arrow, .books-carousel__arrow { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid #bbb; border-radius: 50%; background: #fff; font-size: 30px; line-height: 1; cursor: pointer; }
 .photos-viewer__arrow svg { display: block; width: 22px; height: 22px; }
+.books-carousel__arrow svg { display: block; width: 22px; height: 22px; }
 .photos-viewer__thumbs { display: flex; gap: 12px; width: 100%; overflow-x: auto; padding: 24px 0 2px; scrollbar-width: none; }
 .photos-viewer__thumbs::-webkit-scrollbar { display: none; }
 .photos-viewer__thumb { flex: 0 0 112px; padding: 0; border: 0; border-radius: 10px; overflow: hidden; background: none; opacity: .48; cursor: pointer; transition: opacity .2s, transform .2s; }
@@ -849,6 +850,7 @@ a.work__media:hover img { transform: scale(1.03); }
   .photos-viewer__thumbs { padding: 14px 0 0; gap: 8px; }
   .photos-viewer__thumb { flex-basis: 78px; }
   .photos-viewer__arrow, .books-carousel__arrow { width: 28px; height: 28px; font-size: 22px; }
+  .books-carousel__arrow svg { width: 18px; height: 18px; }
   .books-carousel { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 4px; }
   .book { flex-basis: 170px; }
 }

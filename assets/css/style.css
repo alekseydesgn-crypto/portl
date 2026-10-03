@@ -752,8 +752,7 @@ a.work__media:hover img { transform: scale(1.03); }
 .books-overlay.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
 .books-overlay__inner { width: min(1100px, 96vw); max-height: 90vh; overflow: auto; border-radius: 24px; background: #fff; padding: 34px; }
 .books-carousel { display: grid; grid-template-columns: 42px minmax(0, 1fr) 42px; gap: 12px; align-items: center; }
-.books-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 2px; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 6px 2px 20px; }
-.books-track.is-gliding { scroll-snap-type: none; }
+.books-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 2px; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 6px 2px 20px; }
 .books-track::-webkit-scrollbar { display: none; }
 .book { flex: 0 0 clamp(160px, 19vw, 220px); scroll-snap-align: start; }
 .book__cover { aspect-ratio: 2 / 3; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 16px; box-shadow: 7px 10px 15px #0002; color: #fff; background: #19384e; }

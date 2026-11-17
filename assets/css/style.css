@@ -185,13 +185,14 @@ img { display: block; max-width: 100%; }
   position: relative;
   border-radius: min(1.5625vw, 20px);
   overflow: hidden;
-  aspect-ratio: 1790 / 903;
+  height: clamp(250px, 34vw, 445px);
 }
 .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .hero__copy {
   position: absolute;
   left: min(4.167vw, 54px);
   bottom: min(4.167vw, 54px);
+  right: min(4.167vw, 54px);
   text-align: left;
   color: #fff;
 }
@@ -206,7 +207,7 @@ img { display: block; max-width: 100%; }
   font-family: var(--garamond);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(22px, 4.1667vw, 53px);
+  font-size: clamp(22px, 3.125vw, 40px);
   letter-spacing: .21vw;
   line-height: 1;
   margin: min(.52vw, 8px) 0 0;
@@ -268,6 +269,8 @@ a.btn:hover { background: #fff; color: var(--btn-bg); }
 .work__media { display: block; position: relative; border-radius: min(1.5625vw, 20px); overflow: hidden; }
 .work__media img { width: 100%; transition: transform .5s ease; }
 a.work__media:hover img { transform: scale(1.03); }
+
+.work__status { color: #666; margin: 1rem 0 0; }
 
 /* Dentalogica — “coming soon” badge follows the cursor (top-left of it) */
 .work--soon, .work--soon .work__media, .work--soon .btn { cursor: default; }
@@ -868,4 +871,10 @@ a.work__media:hover img { transform: scale(1.03); }
   .pill__group { gap: 5px; }
   .pill--home .pill__logo { font-size: 13px; }
   .pill--home .pill__link { font-size: 11px; }
+}
+
+.cs__meta--brief { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.cs__meta--brief .cs__meta-col { width: auto; min-width: 0; }
+@media (max-width: 680px) {
+  .cs__meta--brief { grid-template-columns: 1fr; gap: 16px; }
 }

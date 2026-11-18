@@ -196,6 +196,32 @@ img { display: block; max-width: 100%; }
   text-align: left;
   color: #fff;
 }
+/* The bust is independently draggable, with the page still scrollable on touch. */
+.hero__avatar {
+  position: absolute;
+  right: clamp(12px, 4vw, 52px);
+  bottom: -4%;
+  width: 44%;
+  height: 105%;
+  background: center / auto 88% no-repeat url("../img/aleksey-avatar.webp");
+  --poster-color: transparent;
+}
+.hero__avatar::part(default-progress-bar) { display: none; }
+.hero__avatar:defined { background: none; }
+.hero__copy { right: 44%; }
+
+@media (max-width: 760px) {
+  .hero__panel { height: clamp(330px, 85vw, 460px); }
+  .hero__avatar { right: -2%; bottom: 5%; width: 82%; height: 83%; }
+  .hero__panel::after {
+    content: "";
+    position: absolute;
+    inset: 42% 0 0;
+    background: linear-gradient(transparent, rgb(14 12 19 / 82%));
+    pointer-events: none;
+  }
+  .hero__copy { z-index: 1; right: 20px; bottom: 22px; left: 20px; }
+}
 .hero__title {
   font-family: var(--jeju);
   font-weight: 400;

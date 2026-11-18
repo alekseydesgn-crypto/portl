@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&family=EB+Garamond:ital@1&family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=portfolio-review-1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=avatar-3d" />
+  <script type="module" src="assets/vendor/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -32,6 +33,21 @@
   <section class="hero">
     <div class="hero__panel">
       <img class="hero__bg" src="assets/img/hero-grain.jpg" alt="" aria-hidden="true" />
+      <model-viewer class="hero__avatar"
+        src="assets/img/aleksey-avatar.glb"
+        poster="assets/img/aleksey-avatar.webp"
+        alt="3D portrait of Aleksey"
+        data-aria-ru="Повернуть 3D-портрет Алексея"
+        data-aria-en="Rotate Aleksey’s 3D portrait"
+        aria-label="Повернуть 3D-портрет Алексея"
+        camera-controls disable-zoom disable-pan touch-action="pan-y"
+        min-camera-orbit="-31deg 78deg auto"
+        max-camera-orbit="31deg 102deg auto"
+        camera-orbit="0deg 90deg auto"
+        camera-target="0m 0.01m 0m"
+        interaction-prompt="none"
+        loading="eager">
+      </model-viewer>
       <div class="hero__copy">
         <h1 class="hero__title" data-ru="Веб-дизайнер" data-en="Web designer">Веб-дизайнер</h1>
         <p class="hero__sub" data-ru="Обожаю зиму и создание сайтов" data-en="I love winter and making websites."></p>

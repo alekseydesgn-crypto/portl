@@ -72,6 +72,9 @@
       document.querySelectorAll('[data-placeholder-ru][data-placeholder-en]').forEach(function (node) {
         node.placeholder = node.getAttribute('data-placeholder-' + language);
       });
+      document.querySelectorAll('img[data-alt-ru][data-alt-en]').forEach(function (node) {
+        node.alt = node.getAttribute('data-alt-' + language);
+      });
       document.querySelectorAll('[data-aria-ru][data-aria-en]').forEach(function (node) {
         node.setAttribute('aria-label', node.getAttribute('data-aria-' + language));
       });
